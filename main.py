@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-import os
 import sys
 import pydot
 from pylint import run_pyreverse
+from graphviz import Source
 
 
 class PyUML:
@@ -11,13 +11,15 @@ class PyUML:
 
     def run(self, args):
         run_pyreverse()
-        self._render_with_pydot("classes.dot", "utf8")
+        # subprocess.run("pyreverse -AS -o png " + filePath + " -p " + fileName, shell=True,
+        #                   cwd="path/to/output/directory")
 
-    def _render_with_pydot(self, filename, encoding):
-        graphs = pydot.graph_from_dot_file(filename, encoding=encoding)
-        for g in graphs:
-            path = os.path.abspath(os.getcwd()) + '/test.png'
-            g.write_png(path)
+        self._render_with_graphviz("classes.dot")
+
+    def _render_with_graphviz(self, filename):
+        src = Source('');
+        src = src.from_file(filename)
+        src.render(format='png', filename= "test6")
 
 
 def run_pyuml():
