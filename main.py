@@ -1,30 +1,71 @@
-#!/usr/bin/env python
-import sys
-import pydot
-from pylint import run_pyreverse
-from graphviz import Source
+import ast
+from lib.parser import ClassParser
+from lib.basecmd import BaseCmd
+import typed_ast
+
+pyuml_version = "0.0.1"
 
 
-class PyUML:
+class PyUML(BaseCmd):
+
     def __init__(self):
-        print('pyuml start')
+        BaseCmd.__init__(self, None)
+        self.prompt = "pyuml>>>"
+        self.intro = """
+//  
+//                                  _oo8oo_
+//                                 o8888888o
+//                                 88" . "88
+//                                 (| -_- |)
+//                                 0\  =  /0
+//                               ___/'==='\___
+//                             .' \\|     |// '.
+//                            / \\|||  :  |||// \\
+//                           / _||||| -:- |||||_ \\
+//                          |   | \\\  -  /// |   |
+//                          | \_|  ''\---/''  |_/ |
+//                          \  .-\__  '-'  __/-.  /
+//                        ___'. .'  /--.--\  '. .'___
+//                     ."" '<  '.___\_<|>_/___.'  >' "".
+//                    | | :  `- \`.:`\ _ /`:.`/ -`  : | |
+//                    \  \ `-.   \_ __\ /__ _/   .-` /  /
+//                =====`-.____`.___ \_____/ ___.`____.-`=====
+//                                  `=---=`
+//  
+//  
+//       ~~~~~~above comments from https://github.com/ottomao/bugfreejs/blob/master/testFile_gbk.js have fun:)
+//
+//       ~~~~~~~Ara BCDE321 Assessment~~~~~~~~~~~~
+//                
+        """
 
-    def run(self, args):
-        run_pyreverse()
-        # subprocess.run("pyreverse -AS -o png " + filePath + " -p " + fileName, shell=True,
-        #                   cwd="path/to/output/directory")
+    def do_exit(self, _args):
+        """
+        todo
+        """
+        return -1
 
-        self._render_with_graphviz("classes.dot")
+    def do_version(self, args):
+        """
+        todo
+        """
+        print("\nAra pyuml v" + pyuml_version)
+        print("by chenjd\n")
 
-    def _render_with_graphviz(self, filename):
-        src = Source('');
-        src = src.from_file(filename)
-        src.render(format='png', filename= "test6")
+    def do_parse(self, args):
+        """
+        todo
+        """
+        print(args)
+        tree = ast.parse(args)
+        print(tree)
+        result = ClassParser().visit_ClassDef(tree)
+        print(result)
 
 
-def run_pyuml():
-    """run pyuml"""
-    PyUML().run(sys.argv[1:])
 
 
-run_pyuml()
+
+if __name__ == '__main__':
+    console = PyUML()
+    console.cmdloop()
