@@ -1,7 +1,7 @@
 import ast
-from lib.parser import ClassParser
+from lib.parser import ClassParser, DotGenVisitor
 from lib.basecmd import BaseCmd
-import typed_ast
+from typed_ast import ast3
 
 pyuml_version = "0.0.1"
 
@@ -57,13 +57,11 @@ class PyUML(BaseCmd):
         todo
         """
         print(args)
-        tree = ast.parse(args)
+        tree = ast3.parse(args)
         print(tree)
-        result = ClassParser().visit_ClassDef(tree)
+        # result = ClassParser().visit_ClassDef(tree)
+        result = DotGenVisitor().generic_visit(tree)
         print(result)
-
-
-
 
 
 if __name__ == '__main__':
