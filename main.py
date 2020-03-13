@@ -1,6 +1,6 @@
 import ast
-from lib.parser import ClassParser, DotGenVisitor
-from lib.basecmd import BaseCmd
+from utils.parser import ClassParser, DotGenVisitor
+from utils.basecmd import BaseCmd
 from typed_ast import ast3
 
 pyuml_version = "0.0.1"
