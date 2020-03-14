@@ -1,6 +1,7 @@
 import ast
-from utils.parser import ClassParser, DotGenVisitor
+from utils.parser import ClassParser
 from utils.basecmd import BaseCmd
+from utils.loader import Loader
 from typed_ast import ast3
 
 pyuml_version = "0.0.1"
@@ -9,7 +10,7 @@ pyuml_version = "0.0.1"
 class PyUML(BaseCmd):
 
     def __init__(self):
-        BaseCmd.__init__(self, None)
+        BaseCmd.__init__(self)
         self.prompt = "pyuml>>>"
         self.intro = """
 //  
@@ -39,7 +40,7 @@ class PyUML(BaseCmd):
 //                
         """
 
-    def do_exit(self, _args):
+    def do_exit(self, args):
         """
         todo
         """
@@ -50,18 +51,16 @@ class PyUML(BaseCmd):
         todo
         """
         print("\nAra pyuml v" + pyuml_version)
-        print("by chenjd\n")
+        print("by chenjd and liam\n")
 
     def do_parse(self, args):
         """
         todo
         """
-        print(args)
-        tree = ast3.parse(args)
-        print(tree)
-        # result = ClassParser().visit_ClassDef(tree)
-        result = DotGenVisitor().generic_visit(tree)
-        print(result)
+        loader = Loader()
+        code_string = loader.load_from_file(args)
+        tree = ast3.parse(code_string)
+        result = ClassParser().visit(tree)
 
 
 if __name__ == '__main__':

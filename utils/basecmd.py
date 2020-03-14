@@ -4,7 +4,7 @@ import argparse
 
 class BaseCmd(cmd.Cmd):
 
-    def __init__(self, session):
+    def __init__(self):
         cmd.Cmd.__init__(self)
 
     def do_help(self, args):

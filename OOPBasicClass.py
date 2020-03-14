@@ -1,5 +1,15 @@
 # Code from https://github.com/hussien89aa/PythonTutorial
-class Car:
+class Goods:
+    def __init__(self):
+        pass
+
+
+class Car(Goods):
+    def __init__(self):
+        self.num_one = 1
+        self.num_two = 2;
+        self._Name = "private"
+
     def GetOwner(self):
         print("Owner is ", self._Name)
 

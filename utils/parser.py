@@ -1,60 +1,60 @@
-from ast import NodeVisitor, iter_fields, AST
+from typed_ast import ast3
 
 
-class ClassParser(NodeVisitor):
+class ClassParser(ast3.NodeVisitor):
     """
     todo
     """
     # List to put the class data.
     puml_classes = list()
 
+    def visit_Module(self, node):
+        """
+        :param node:
+        :return:
+        """
+        for n in node.body:
+            self.visit(n)
+
     def visit_ClassDef(self, node):
         """
         todo
         """
+        print(node.name)
 
-        print(type(node).__name__)
-        NodeVisitor.generic_visit(self, node)
+        class_dic = dict()
+        class_dic['name'] = node.name
+        class_dic['members'] = list()
+        class_dic['methods'] = list()
+
+        for child in node.body:
+            if isinstance(child, ast3.FunctionDef):
+                # private methods
+                if child.name.startswith('__'):
+                    class_dic['methods'].append('-' + child.name)
+                else:
+                    class_dic['methods'].append('+' + child.name)
+
+                # constructor
+                if child.name == '__init__':
+                    for code in child.body:
+                        if isinstance(code, ast3.Assign):
+                            for target in code.targets:
+                                if isinstance(target, ast3.Attribute):
+                                    if isinstance(target.value, ast3.Name):
+                                        if target.value.id == 'self':
+                                            # private member
+                                            if target.attr.startswith('__'):
+                                                class_dic['members'].append('-' + target.attr)
+                                            else:
+                                                class_dic['members'].append('+' + target.attr)
+
+        print(class_dic)
+
+        ast3.NodeVisitor.generic_visit(self, node)
 
         return self.puml_classes
 
-
-class DotGenVisitor(NodeVisitor):
-    """
-    todo
-    """
-
-    @staticmethod
-    def _qualified_name(obj):
-        """
-        """
-        return "%s.%s" % (obj.__module__, obj.__name__)
-
-    def label(self, node):
-        """
-        """
-        pass
-        # return r"%s\n%s" % (type(node).__name__, node.label())
-
-    def generic_visit(self, node):
-
-        # label this node
-        out_string = 'n%s [label="%s"];\n' % (id(node), self.label(node))
-
-        # edges to children
-        for fieldname, fieldvalue in iter_fields(node):
-            for index, child in self.enumerate_flatten(fieldvalue):
-                if isinstance(child, AST):
-                    suffix = "".join(["[%d]" % i for i in index])
-                    out_string += 'n{} -> n{} [label="{}{}"];\n'.format(
-                        id(node), id(child), fieldname, suffix)
-                    out_string += self.visit(child)
-        return out_string
-
-    def enumerate_flatten(self, obj_or_list):
-        if isinstance(obj_or_list, list):
-            for n, gen in enumerate(map(self.enumerate_flatten, obj_or_list)):
-                for k, elem in gen:
-                    yield (n,) + k, elem
-        else:
-            yield (), obj_or_list
+    def visit_FunctionDef(self, node):
+        print(node.name)
+        self.generic_visit(node)
