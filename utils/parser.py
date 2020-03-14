@@ -39,15 +39,20 @@ class ClassParser(ast3.NodeVisitor):
                 if child.name == '__init__':
                     for code in child.body:
                         if isinstance(code, ast3.Assign):
+                            # add type comment
+                            type_comment = ""
+                            if code.type_comment is not None:
+                                type_comment = ":" + code.type_comment
                             for target in code.targets:
                                 if isinstance(target, ast3.Attribute):
                                     if isinstance(target.value, ast3.Name):
                                         if target.value.id == 'self':
                                             # private member
                                             if target.attr.startswith('__'):
-                                                class_dic['members'].append('-' + target.attr)
+                                                class_dic['members'].append('-' + target.attr + type_comment)
                                             else:
-                                                class_dic['members'].append('+' + target.attr)
+                                                class_dic['members'].append('+' + target.attr + type_comment)
+                                                # target.type_comment
 
         print(class_dic)
 

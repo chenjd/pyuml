@@ -6,7 +6,7 @@ class Goods:
 
 class Car(Goods):
     def __init__(self):
-        self.num_one = 1
+        self.num_one = 1 # type: int
         self.num_two = 2;
         self._Name = "private"
 
