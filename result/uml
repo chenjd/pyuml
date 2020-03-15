@@ -1,0 +1,3 @@
+digraph "class" {
+    "0" [label="{Car|+num_one : Integer\l+num_two : Integer\l+_Name : String\l|-__init__\l+GetOwner\l+SetOwner\l}",shape="record"];
+}

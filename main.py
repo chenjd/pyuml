@@ -3,6 +3,9 @@ from utils.parser import ClassParser
 from utils.basecmd import BaseCmd
 from utils.loader import Loader
 from typed_ast import ast3
+from graphviz import Source
+
+from utils.writer import DotWriter
 
 pyuml_version = "0.0.1"
 
@@ -53,14 +56,30 @@ class PyUML(BaseCmd):
         print("\nAra pyuml v" + pyuml_version)
         print("by chenjd and liam\n")
 
-    def do_parse(self, args):
+    def do_2uml(self, args):
+        """
+        todo
+        """
+        dot_string = self._parse_to_dot(args)
+        self._render_with_graphviz(dot_string)
+
+    def _parse_to_dot(self, args):
         """
         todo
         """
         loader = Loader()
         code_string = loader.load_from_file(args)
         tree = ast3.parse(code_string)
-        result = ClassParser().visit(tree)
+        class_parser = ClassParser()
+        class_parser.visit(tree)
+        print(class_parser.classes_list)
+
+        dot_string = DotWriter().write_node(class_parser.classes_list)
+        return dot_string
+
+    def _render_with_graphviz(self, dot):
+        src = Source(dot)
+        src.render(format='png', filename="result/uml")
 
 
 if __name__ == '__main__':

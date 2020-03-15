@@ -2,4 +2,3 @@ digraph "classes" {
 charset="utf-8"
 rankdir=BT
 "0" [label="{Car|\l|GetOwner()\lSetOwner(Name)\l}", shape="record"];
-}

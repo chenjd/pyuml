@@ -1,14 +1,14 @@
 # Code from https://github.com/hussien89aa/PythonTutorial
-class Goods:
-    def __init__(self):
-        pass
+# class Goods:
+#     def __init__(self):
+#         pass
 
 
-class Car(Goods):
+class Car:
     def __init__(self):
-        self.num_one = 1 # type: int
-        self.num_two = 2;
-        self._Name = "private"
+        self.num_one = 1  # type: Integer
+        self.num_two = 2  # type: Integer
+        self._Name = "private"  # type: String
 
     def GetOwner(self):
         print("Owner is ", self._Name)

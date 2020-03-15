@@ -1,14 +1,9 @@
-def normalize_node_id(nid):
-    """Returns a suitable DOT node id for `nid`."""
-    return '"%s"' % nid
-
-
 class DotWriter:
     """
-
+    todo
     """
 
-    def __init__(self, config):
+    def __init__(self):
         self.styles = [
             dict(arrowtail="none", arrowhead="open"),
             dict(arrowtail="none", arrowhead="empty"),
@@ -18,44 +13,55 @@ class DotWriter:
             ),
         ]
 
-    def set_printer(self, file_name, basename):
-        """initialize DotWriter and add options for layout.
-        """
-        layout = dict(rankdir="BT")
-        self.file_name = file_name
-
-    def get_title(self, obj):
-        """get project title"""
-        return obj.title
-
-    def get_values(self, obj):
-        """get label and shape for classes.
-        The label contains all attributes and methods
-        """
-        label = obj.title
-        if obj.shape == "interface":
-            label = "«interface»\\n%s" % label
-        label = r"%s|%s\l|" % (label, r"\l".join(obj.attrs))
-        for func in obj.methods:
-            if func.args.args:
-                args = [arg.name for arg in func.args.args if arg.name != "self"]
-            else:
-                args = []
-            label = r"%s%s(%s)\l" % (label, func.name, ", ".join(args))
-        label = "{%s}" % label
-        return dict(label=label, shape="record")
-
     def write_edge(self, name1, name2, **props):
-        """emit an edge from <name1> to <name2>.
-        edge properties: see http://www.graphviz.org/doc/info/attrs.html
         """
-        attrs = ['%s="%s"' % (prop, value) for prop, value in props.items()]
-        n_from, n_to = normalize_node_id(name1), normalize_node_id(name2)
-        self.emit("%s -> %s [%s];" % (n_from, n_to, ", ".join(sorted(attrs))))
+        todo
+        """
+        pass
 
-    def write_node(self, name, **props):
-        """emit a node with given properties.
-        node properties: see http://www.graphviz.org/doc/info/attrs.html
+    def write_node(self, classes):
         """
-        attrs = ['%s="%s"' % (prop, value) for prop, value in props.items()]
-        self.emit("%s [%s];" % (normalize_node_id(name), ", ".join(sorted(attrs))))
+        todo
+        """
+        dot_string = "digraph \"class\" {\n"
+
+        for index in range(len(classes)):
+            dot_string = self._write_class(dot_string, index, classes[index]["name"])
+            dot_string = self._write_members(dot_string, classes[index]["members"])
+            dot_string = self._write_methods(dot_string, classes[index]["methods"])
+            dot_string += ",shape=\"record\"]"
+            dot_string += ";\n"
+
+        dot_string += "}"
+
+        print(dot_string)
+
+        return dot_string
+
+    def _write_class(self, dot_string, class_id, class_name):
+        dot_string += "    \"{}\" [label=\"{{{}|".format(class_id, class_name)
+        return dot_string
+
+    def _write_members(self, dot_string, members):
+        if len(members) == 0:
+            return dot_string
+
+        for member in members:
+            dot_string += "{}\l".format(member)
+        dot_string +="|"
+
+        return dot_string
+
+    def _write_methods(self, dot_string, methods):
+        if len(methods) == 0:
+            return dot_string
+
+        for method in methods:
+            dot_string += "{}\l".format(method)
+        dot_string +="}\""
+
+        return dot_string
+
+
+
+

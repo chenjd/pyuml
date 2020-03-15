@@ -5,8 +5,9 @@ class ClassParser(ast3.NodeVisitor):
     """
     todo
     """
-    # List to put the class data.
-    puml_classes = list()
+    def __init__(self):
+        super().__init__()
+        self.classes_list = list()
 
     def visit_Module(self, node):
         """
@@ -42,7 +43,7 @@ class ClassParser(ast3.NodeVisitor):
                             # add type comment
                             type_comment = ""
                             if code.type_comment is not None:
-                                type_comment = ":" + code.type_comment
+                                type_comment = " : " + code.type_comment
                             for target in code.targets:
                                 if isinstance(target, ast3.Attribute):
                                     if isinstance(target.value, ast3.Name):
@@ -52,13 +53,10 @@ class ClassParser(ast3.NodeVisitor):
                                                 class_dic['members'].append('-' + target.attr + type_comment)
                                             else:
                                                 class_dic['members'].append('+' + target.attr + type_comment)
-                                                # target.type_comment
 
         print(class_dic)
-
+        self.classes_list.append(class_dic)
         ast3.NodeVisitor.generic_visit(self, node)
-
-        return self.puml_classes
 
     def visit_FunctionDef(self, node):
         print(node.name)
