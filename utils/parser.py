@@ -5,9 +5,11 @@ class ClassParser(ast3.NodeVisitor):
     """
     todo
     """
+
     def __init__(self):
         super().__init__()
         self.classes_list = list()
+        self.relationships = {}
 
     def visit_Module(self, node):
         """
@@ -27,6 +29,9 @@ class ClassParser(ast3.NodeVisitor):
         class_dic['name'] = node.name
         class_dic['members'] = list()
         class_dic['methods'] = list()
+        class_dic['base_classes'] = list()
+
+        class_dic['base_classes'] = node.bases
 
         for child in node.body:
             if isinstance(child, ast3.FunctionDef):

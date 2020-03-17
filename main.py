@@ -1,4 +1,3 @@
-import ast
 from utils.parser import ClassParser
 from utils.basecmd import BaseCmd
 from utils.loader import Loader
@@ -74,7 +73,7 @@ class PyUML(BaseCmd):
         class_parser.visit(tree)
         print(class_parser.classes_list)
 
-        dot_string = DotWriter().write_node(class_parser.classes_list)
+        dot_string = DotWriter().write(class_parser.classes_list)
         return dot_string
 
     def _render_with_graphviz(self, dot):
