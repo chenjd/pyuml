@@ -1,5 +1,7 @@
 import argparse
 import shlex
+import logging
+
 from typed_ast import ast3
 from graphviz import Source
 
@@ -7,6 +9,7 @@ from core.parser import ClassParser
 from core.basecmd import BaseCmd
 from core.loader import Loader
 from core.writer import DotWriter
+from core.serializer import Serializer
 from config.config import Config
 
 
@@ -42,33 +45,37 @@ class PyUML(BaseCmd):
 //       ~~~~~~~Ara BCDE321 Assessment~~~~~~~~~~~~
 //                
         """
+        self.logger = self._setup_logger()
 
     def do_exit(self, args):
         """
-        todo
+        Exit
         """
         return -1
 
     def do_version(self, args):
         """
-        todo
+        Print version info
         """
         config = Config()
         print("\nAra pyuml v" + config._version)
 
     def do_config(self, args):
+        """
+        Print config info
+        """
         config = Config()
-        print("\nAuthor: " + config._version)
-        print("\nVersion: " + config._version)
-        print("\nUrl: " + config._version)
+        print("\nAuthor: " + config.author)
+        print("\nVersion: " + config.version)
+        print("\nUrl: " + config.url)
 
     def do_2uml(self, args):
         """
         Generate UML diagram from Python source code
         """
         parser = argparse.ArgumentParser(prog='2uml')
-        parser.add_argument('Input', help='input file')
-        parser.add_argument('Output', help='output file')
+        parser.add_argument('Input', help='input file/folder')
+        parser.add_argument('Output', help='output folder')
         try:
             splitargs = parser.parse_args(shlex.split(args))
             dot_string = self._parse_to_dot(splitargs.Input)
@@ -103,23 +110,36 @@ class PyUML(BaseCmd):
         parser.add_argument('Output', help='output file')
         try:
             splitargs = parser.parse_args(shlex.split(args))
+            serializer = Serializer()
+            serializer.serialize(1)
 
-        except Exception as e:
-            print("ERROR", e)
+        except:
+            self.logger.exception("persistent")
+            pass
 
-    def do_load(self, args):
+    def do_2uml_from_binary(self, args):
         """
         Deserialize AST data from serialization data
         """
         parser = argparse.ArgumentParser(prog='read')
-        parser.add_argument('Input', help='input file')
+        parser.add_argument('Input', help='input .ast file')
         parser.add_argument('Output', help='output file')
 
         try:
             splitargs = parser.parse_args(shlex.split(args))
+            serializer = Serializer()
+            serializer.deserilize()
+
 
         except Exception as e:
             print("ERROR", e)
+        except:
+            pass
+
+    def _setup_logger(self):
+        logging.basicConfig(filename='./log/myapp.log', level=logging.DEBUG,
+                            format='%(asctime)s %(levelname)s %(name)s %(message)s')
+        return logging.getLogger(__name__)
 
 
 if __name__ == '__main__':

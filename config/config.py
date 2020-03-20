@@ -9,6 +9,18 @@ class Config:
     def __init__(self):
         self._author, self._version, self._url = self._get_config()
 
+    @property
+    def author(self):
+        return self._author
+
+    @property
+    def version(self):
+        return self._version
+
+    @property
+    def url(self):
+        return self._url
+
     def _create_default_config(self):
         config_parser = configparser.ConfigParser()
         config_parser['DEFAULT'] = {'Author': 'jiadong chen & liam',
