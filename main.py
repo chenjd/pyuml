@@ -1,15 +1,13 @@
 import argparse
 import shlex
+from typed_ast import ast3
+from graphviz import Source
+
 from core.parser import ClassParser
 from core.basecmd import BaseCmd
 from core.loader import Loader
 from core.writer import DotWriter
-from config import config
-
-from typed_ast import ast3
-from graphviz import Source
-
-pyuml_version = "0.0.1"
+from config.config import Config
 
 
 class PyUML(BaseCmd):
@@ -55,8 +53,14 @@ class PyUML(BaseCmd):
         """
         todo
         """
-        print("\nAra pyuml v" + pyuml_version)
-        print("by chenjd and liam\n")
+        config = Config()
+        print("\nAra pyuml v" + config._version)
+
+    def do_config(self, args):
+        config = Config()
+        print("\nAuthor: " + config._version)
+        print("\nVersion: " + config._version)
+        print("\nUrl: " + config._version)
 
     def do_2uml(self, args):
         """
