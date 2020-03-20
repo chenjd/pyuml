@@ -4,14 +4,7 @@ class DotWriter:
     """
 
     def __init__(self):
-        self.styles = [
-            dict(arrowtail="none", arrowhead="open"),
-            dict(arrowtail="none", arrowhead="empty"),
-            dict(arrowtail="node", arrowhead="empty", style="dashed"),
-            dict(
-                fontcolor="green", arrowtail="none", arrowhead="diamond", style="solid"
-            ),
-        ]
+        pass
 
     def write(self, classes):
         """
@@ -37,9 +30,9 @@ class DotWriter:
         todo
         """
         for index in range(len(classes)):
-            dot_string = self._write_class(dot_string, index, classes[index]["name"])
-            dot_string = self._write_members(dot_string, classes[index]["members"])
-            dot_string = self._write_methods(dot_string, classes[index]["methods"])
+            dot_string = self._write_class(dot_string, index, classes[index].name)
+            dot_string = self._write_members(dot_string, classes[index].members)
+            dot_string = self._write_methods(dot_string, classes[index].methods)
             dot_string += ",shape=\"record\"]"
             dot_string += ";\n"
 

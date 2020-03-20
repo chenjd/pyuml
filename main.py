@@ -1,10 +1,13 @@
-from utils.parser import ClassParser
-from utils.basecmd import BaseCmd
-from utils.loader import Loader
+import argparse
+import shlex
+from core.parser import ClassParser
+from core.basecmd import BaseCmd
+from core.loader import Loader
+from core.writer import DotWriter
+from config import config
+
 from typed_ast import ast3
 from graphviz import Source
-
-from utils.writer import DotWriter
 
 pyuml_version = "0.0.1"
 
@@ -57,10 +60,17 @@ class PyUML(BaseCmd):
 
     def do_2uml(self, args):
         """
-        todo
+        Generate UML diagram from Python source code
         """
-        dot_string = self._parse_to_dot(args)
-        self._render_with_graphviz(dot_string)
+        parser = argparse.ArgumentParser(prog='2uml')
+        parser.add_argument('Input', help='input file')
+        parser.add_argument('Output', help='output file')
+        try:
+            splitargs = parser.parse_args(shlex.split(args))
+            dot_string = self._parse_to_dot(splitargs.Input)
+            self._render_with_graphviz(dot_string)
+        except:
+            pass
 
     def _parse_to_dot(self, args):
         """
@@ -79,6 +89,33 @@ class PyUML(BaseCmd):
     def _render_with_graphviz(self, dot):
         src = Source(dot)
         src.render(format='png', filename="result/uml")
+
+    def do_persistent(self, args):
+        """
+        Generate serialization data from AST obj.
+        """
+        parser = argparse.ArgumentParser(prog='read')
+        parser.add_argument('Input', help='input file')
+        parser.add_argument('Output', help='output file')
+        try:
+            splitargs = parser.parse_args(shlex.split(args))
+
+        except Exception as e:
+            print("ERROR", e)
+
+    def do_load(self, args):
+        """
+        Deserialize AST data from serialization data
+        """
+        parser = argparse.ArgumentParser(prog='read')
+        parser.add_argument('Input', help='input file')
+        parser.add_argument('Output', help='output file')
+
+        try:
+            splitargs = parser.parse_args(shlex.split(args))
+
+        except Exception as e:
+            print("ERROR", e)
 
 
 if __name__ == '__main__':

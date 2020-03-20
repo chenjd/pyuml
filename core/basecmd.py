@@ -12,10 +12,6 @@ class BaseCmd(cmd.Cmd):
         todo
         """
         cmd.Cmd.do_help(self, args)
-        # parser = argparse.ArgumentParser(prog = 'pyuml', add_help = False)
-        # parser.add_argument('-i', help='input')
-        # parser.add_argument('-o', help='output')
-        # parser.print_help()
 
     def emptyline(self):
         """
