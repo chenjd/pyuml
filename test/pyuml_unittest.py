@@ -7,6 +7,7 @@ from typed_ast import ast3
 
 from core.loader import Loader
 from core.parser import ClassParser
+from core.serializer import Serializer
 from core.writer import DotWriter
 
 TESTS_DIR = 'test_py_code'
@@ -212,6 +213,18 @@ class TestPyUmlAPI(unittest.TestCase):
         code_string_list = loader.load_from_file_or_directory(local_dir)
         with self.assertRaises(SyntaxError):
             tree = ast3.parse(code_string_list[0])
+
+    def test_serializer_serialize_save_classname_as_key(self):
+        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data_methods.py")
+        loader = Loader()
+        code_string_list = loader.load_from_file_or_directory(local_dir)
+        tree = ast3.parse(code_string_list[0])
+        class_parser = ClassParser()
+        class_parser.visit(tree)
+        serializer = Serializer()
+        serializer.serialize(class_parser.classes_list[0])
+        serializer.
+
 
 
 if __name__ == '__main__':

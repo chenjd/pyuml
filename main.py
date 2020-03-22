@@ -104,7 +104,7 @@ class PyUML(BaseCmd):
 
         try:
             splitargs = parser.parse_args(shlex.split(args))
-            serializer = Serializer()
+            serializer = Serializer("artifacts/ast.db")  # the path of ast.db move to config later
             result = serializer.deserilize(splitargs.Input)
             print(result)
 
@@ -129,7 +129,7 @@ class PyUML(BaseCmd):
 
     def _persistent_to_file(self, obj_list):
         assert obj_list is not None
-        serializer = Serializer()
+        serializer = Serializer("artifacts/ast.db")
         for obj in obj_list:
             serializer.serialize(obj)
 

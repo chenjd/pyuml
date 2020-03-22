@@ -498,3 +498,22 @@ Traceback (most recent call last):
 KeyError: b'Car'
 2020-03-23 09:53:19,226 DEBUG graphviz.files write 743 bytes to '/Users/chenjiadong/Documents/uml0'
 2020-03-23 09:53:19,226 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-23 10:09:57,409 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 126, in _parse_to_dot
+    self._persistent_to_file(class_parser.classes_list)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 134, in _persistent_to_file
+    serializer.serialize(obj)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/serializer.py", line 13, in serialize
+    with shelve.open(self._path) as db:
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, dbm.open(filename, flag), protocol, writeback)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/dbm/__init__.py", line 94, in open
+    return mod.open(file, flag, mode)
+_gdbm.error: [Errno 2] No such file or directory
+2020-03-23 10:11:54,807 DEBUG graphviz.files write 743 bytes to '/Users/chenjiadong/Documents/uml0'
+2020-03-23 10:11:54,810 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
