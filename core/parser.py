@@ -5,11 +5,11 @@ class ClassRecorder:
     """
     record the class data
     """
-    def __init__(self, name):  # type: String
+    def __init__(self, name, parents):  # type: String
         self._name = name
         self._members = list()
         self._methods = list()
-        self._base_classes = list()
+        self._base_classes = parents
 
     @property
     def name(self):
@@ -75,7 +75,7 @@ class ClassParser(ast3.NodeVisitor):
         #
         # class_dic['base_classes'] = node.bases
 
-        class_recorder = ClassRecorder(node.name)
+        class_recorder = ClassRecorder(node.name, node.bases)
 
         for child in node.body:
             if isinstance(child, ast3.FunctionDef):
