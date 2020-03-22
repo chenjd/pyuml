@@ -39,23 +39,25 @@ class DotWriter:
         return dot_string
 
     def _write_class(self, dot_string, class_id, class_name):
-        dot_string += "    \"{}\" [label=\"{{{}|".format(class_name, class_name)
+        dot_string += "    \"{}\" [label=\"{{{}".format(class_name, class_name)
         return dot_string
 
     def _write_members(self, dot_string, members):
         if len(members) == 0:
             return dot_string
 
+        dot_string +="|"
         for member in members:
             dot_string += "{}\l".format(member)
-        dot_string +="|"
 
         return dot_string
 
     def _write_methods(self, dot_string, methods):
         if len(methods) == 0:
+            dot_string += "}\""
             return dot_string
 
+        dot_string +="|"
         for method in methods:
             dot_string += "{}\l".format(method)
         dot_string +="}\""

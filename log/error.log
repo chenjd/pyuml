@@ -211,3 +211,49 @@ Traceback (most recent call last):
   File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 172, in run
     output=out, stderr=err)
 graphviz.backend.CalledProcessError: Command '['dot', '-Tpng', '-O', 'uml1']' returned non-zero exit status 1. [stderr: b'Error: uml1: syntax error in line 2 scanning a quoted string (missing endquote? longer than 16384?)\nString starting:"];\n}\n\n']
+2020-03-22 20:04:10,735 DEBUG graphviz.files write 677 bytes to 'result/uml0'
+2020-03-22 20:04:10,738 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 20:04:10,856 DEBUG graphviz.files write 69 bytes to 'result/uml1'
+2020-03-22 20:04:10,858 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-22 20:04:48,751 DEBUG graphviz.files write 677 bytes to 'result/uml0'
+2020-03-22 20:04:48,753 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 20:04:48,810 DEBUG graphviz.files write 69 bytes to 'result/uml1'
+2020-03-22 20:04:48,810 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-22 20:53:49,390 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 91, in do_2uml
+    self._render_with_graphviz(index, dot_string)
+TypeError: _render_with_graphviz() missing 1 required positional argument: 'dot'
+2020-03-22 20:55:16,792 DEBUG graphviz.files write 69 bytes to '/uml0'
+2020-03-22 20:55:16,793 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 91, in do_2uml
+    self._render_with_graphviz(output_path, index, dot_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 151, in _render_with_graphviz
+    src.render(format='png', filename=os.path.join(output_path, "/uml{}".format(index)))
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/files.py", line 202, in render
+    filepath = self.save(filename, directory)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/files.py", line 166, in save
+    with io.open(filepath, 'w', encoding=self.encoding) as fd:
+PermissionError: [Errno 13] Permission denied: '/uml0'
+2020-03-22 20:58:30,651 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml0'
+2020-03-22 20:58:30,654 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 20:58:30,726 DEBUG graphviz.files write 179 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml1'
+2020-03-22 20:58:30,726 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-22 20:58:30,757 DEBUG graphviz.files write 81 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml2'
+2020-03-22 20:58:30,758 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-03-22 20:58:30,789 DEBUG graphviz.files write 450 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml3'
+2020-03-22 20:58:30,790 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-03-22 20:58:30,821 DEBUG graphviz.files write 677 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml4'
+2020-03-22 20:58:30,821 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml4']
+2020-03-22 20:58:30,861 DEBUG graphviz.files write 167 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml5'
+2020-03-22 20:58:30,861 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml5']
+2020-03-22 20:58:30,889 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml6'
+2020-03-22 20:58:30,889 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml6']
+2020-03-22 21:00:17,358 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 87, in do_2uml
+    code_string_list = loader.load_from_file_or_directory(input_path)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/loader.py", line 9, in load_from_file_or_directory
+    raise IOError
+OSError

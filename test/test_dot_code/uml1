@@ -1,0 +1,3 @@
+digraph "class" {
+    "MyClass" [label="{MyClass|+_name : String\l+_age : String\l+_three : String\l+_four : String\l+_five : String\l|-__init__\l+_hi\l+bye\l}",shape="record"];
+}

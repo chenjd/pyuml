@@ -1,0 +1,3 @@
+digraph "class" {
+    "MyClass" [label="{MyClass|-__init__\l}",shape="record"];
+}

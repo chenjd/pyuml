@@ -82,12 +82,13 @@ class PyUML(BaseCmd):
             splitargs = parser.parse_args(shlex.split(args))
 
             input_path = splitargs.Input
+            output_path = splitargs.Output
             loader = Loader()
             code_string_list = loader.load_from_file_or_directory(input_path)
 
             for index, code_string in enumerate(code_string_list):
                 dot_string = self._parse_to_dot(code_string)
-                self._render_with_graphviz(index, dot_string)
+                self._render_with_graphviz(output_path, index, dot_string)
 
         except:
             print('Exception: Check the error log')
@@ -100,7 +101,7 @@ class PyUML(BaseCmd):
         """
         parser = argparse.ArgumentParser(prog='read')
         parser.add_argument('Input', help='input file')
-        parser.add_argument('Output', help='output file')
+        parser.add_argument('Output', help='output folder')
         try:
             splitargs = parser.parse_args(shlex.split(args))
             serializer = Serializer()
@@ -138,16 +139,20 @@ class PyUML(BaseCmd):
         """
         todo
         """
-        tree = ast3.parse(code_string)
-        class_parser = ClassParser()
-        class_parser.visit(tree)
+        class_parser = self._parse_to_class_recoard(code_string)
 
         dot_string = DotWriter().write(class_parser.classes_list)
         return dot_string
 
-    def _render_with_graphviz(self, index, dot):
+    def _parse_to_class_recoard(self, code_string):
+        tree = ast3.parse(code_string)
+        class_parser = ClassParser()
+        class_parser.visit(tree)
+        return class_parser
+
+    def _render_with_graphviz(self, output_path, index, dot):
         src = Source(dot)
-        src.render(format='png', filename="result/uml{}".format(index))
+        src.render(format='png', filename='uml{}'.format(index), directory=output_path)
 
 
 if __name__ == '__main__':
