@@ -1,0 +1,52 @@
+2020-03-22 15:04:01,758 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    dot_string = self._parse_to_dot(splitargs.Input)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 136, in _parse_to_dot
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+TypeError: parse() arg 1 must be a string or bytes object
+2020-03-22 15:05:53,564 ERROR __main__ 2uml_from_binary
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 117, in do_2uml_from_binary
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-22 15:06:54,387 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    dot_string = self._parse_to_dot(splitargs.Input)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 137, in _parse_to_dot
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+TypeError: parse() arg 1 must be a string or bytes object
+2020-03-22 15:07:21,820 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    dot_string = self._parse_to_dot(splitargs.Input)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 136, in _parse_to_dot
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+TypeError: parse() arg 1 must be a string or bytes object
+2020-03-22 15:09:35,015 DEBUG graphviz.files write 243 bytes to 'result/uml'
+2020-03-22 15:09:35,016 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 15:12:55,628 DEBUG graphviz.files write 493 bytes to 'result/uml'
+2020-03-22 15:12:55,630 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 15:13:58,778 DEBUG graphviz.files write 493 bytes to 'result/uml'
+2020-03-22 15:13:58,780 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 15:15:12,933 DEBUG graphviz.files write 493 bytes to 'result/uml'
+2020-03-22 15:15:12,935 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 15:17:08,666 DEBUG graphviz.files write 677 bytes to 'result/uml'
+2020-03-22 15:17:08,666 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
