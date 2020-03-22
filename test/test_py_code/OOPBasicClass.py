@@ -33,7 +33,7 @@ class Car2(Car):
         self._Name = Name
 
 
-class Car3(Car):
+class Car3(Car, MovementObject):
     def __init__(self):
         self.num_one = 1  # type: Integer
         self.num_two = 2  # type: Integer

@@ -21,4 +21,14 @@ class Serializer:
 
         return data
 
+    def get_keys(self):
+        with shelve.open(self._path) as db:
+            klist = list(db.keys())
+        return klist
+
+    def clear(self):
+        with shelve.open(self._path) as db:
+            db.clear()
+
+
 

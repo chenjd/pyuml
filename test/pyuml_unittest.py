@@ -12,6 +12,7 @@ from core.writer import DotWriter
 
 TESTS_DIR = 'test_py_code'
 TESTS_DIR2 = 'test_dot_code'
+TESTS_DIR3 = 'test_db'
 
 
 class TestPyUmlAPI(unittest.TestCase):
@@ -216,14 +217,91 @@ class TestPyUmlAPI(unittest.TestCase):
 
     def test_serializer_serialize_save_classname_as_key(self):
         local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data_methods.py")
+        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer()
+        serializer = Serializer(target_dir)
+        serializer.clear()
         serializer.serialize(class_parser.classes_list[0])
-        serializer.
+        self.assertEqual(serializer.get_keys()[0], "MyClass")
+
+    def test_serializer_serialize_save_multiple_class_data(self):
+        local_dir = os.path.join(TESTS_DIR, "py_src_code_classes_inheritance.py")
+        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        loader = Loader()
+        code_string_list = loader.load_from_file_or_directory(local_dir)
+        tree = ast3.parse(code_string_list[0])
+        class_parser = ClassParser()
+        class_parser.visit(tree)
+        serializer = Serializer(target_dir)
+        serializer.clear()
+        for cls in class_parser.classes_list:
+            serializer.serialize(cls)
+
+        expected_class_count = 3
+        self.assertEqual(expected_class_count, len(serializer.get_keys()))
+
+    def test_serializer_deserialize_file_do_not_exist(self):
+        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
+        target_dir = os.path.join(TESTS_DIR3, "fake_test.db")
+        loader = Loader()
+        code_string_list = loader.load_from_file_or_directory(local_dir)
+        tree = ast3.parse(code_string_list[0])
+        class_parser = ClassParser()
+        class_parser.visit(tree)
+        serializer = Serializer(target_dir)
+        with self.assertRaises(KeyError):
+            serializer.deserilize('Test')
+
+    def test_serializer_deserialize_key_do_not_exist(self):
+        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
+        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        loader = Loader()
+        code_string_list = loader.load_from_file_or_directory(local_dir)
+        tree = ast3.parse(code_string_list[0])
+        class_parser = ClassParser()
+        class_parser.visit(tree)
+        serializer = Serializer(target_dir)
+        serializer.clear()
+        for cls in class_parser.classes_list:
+            serializer.serialize(cls)
+        with self.assertRaises(KeyError):
+            serializer.deserilize('Test')
+
+    def test_serializer_deserialize_member_count(self):
+        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
+        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        loader = Loader()
+        code_string_list = loader.load_from_file_or_directory(local_dir)
+        tree = ast3.parse(code_string_list[0])
+        class_parser = ClassParser()
+        class_parser.visit(tree)
+        serializer = Serializer(target_dir)
+        serializer.clear()
+        for cls in class_parser.classes_list:
+            serializer.serialize(cls)
+        cls_data = serializer.deserilize('MyClass')
+        expected_m_count = 5
+        self.assertEqual(expected_m_count, cls_data['Members'])
+
+    def test_serializer_deserialize_method_count(self):
+        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data_methods.py")
+        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        loader = Loader()
+        code_string_list = loader.load_from_file_or_directory(local_dir)
+        tree = ast3.parse(code_string_list[0])
+        class_parser = ClassParser()
+        class_parser.visit(tree)
+        serializer = Serializer(target_dir)
+        serializer.clear()
+        for cls in class_parser.classes_list:
+            serializer.serialize(cls)
+        cls_data = serializer.deserilize('MyClass')
+        expected_m_count = 3
+        self.assertEqual(expected_m_count, cls_data['Methods'])
 
 
 
@@ -231,4 +309,5 @@ if __name__ == '__main__':
     test_dir = os.path.dirname(sys.argv[0])
     TESTS_DIR = os.path.join(test_dir, TESTS_DIR)
     TESTS_DIR2 = os.path.join(test_dir, TESTS_DIR2)
+    TESTS_DIR3 = os.path.join(test_dir, TESTS_DIR3)
     unittest.main()

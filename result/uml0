@@ -6,4 +6,5 @@ digraph "class" {
     "Car" -> "MovementObject"[arrowhead = "empty", arrowtail = "none"]
     "Car2" -> "Car"[arrowhead = "empty", arrowtail = "none"]
     "Car3" -> "Car"[arrowhead = "empty", arrowtail = "none"]
+    "Car3" -> "MovementObject"[arrowhead = "empty", arrowtail = "none"]
 }

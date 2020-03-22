@@ -517,3 +517,72 @@ Traceback (most recent call last):
 _gdbm.error: [Errno 2] No such file or directory
 2020-03-23 10:11:54,807 DEBUG graphviz.files write 743 bytes to '/Users/chenjiadong/Documents/uml0'
 2020-03-23 10:11:54,810 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-23 11:57:48,947 ERROR __main__ load
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+KeyError: 'dsds'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 108, in do_Load
+    result = serializer.deserilize(splitargs.Input)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/serializer.py", line 20, in deserilize
+    data = db[name]
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 113, in __getitem__
+    f = BytesIO(self.dict[key.encode(self.keyencoding)])
+KeyError: b'dsds'
+2020-03-23 11:57:51,839 ERROR __main__ load
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 106, in do_Load
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1758, in parse_args
+    self.error(msg % ' '.join(argv))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-23 11:58:23,192 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/d/uml0'
+2020-03-23 11:58:23,193 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-23 11:58:23,304 DEBUG graphviz.files write 179 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/d/uml1'
+2020-03-23 11:58:23,304 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-23 11:58:23,338 DEBUG graphviz.files write 81 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/d/uml2'
+2020-03-23 11:58:23,339 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-03-23 11:58:23,369 DEBUG graphviz.files write 450 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/d/uml3'
+2020-03-23 11:58:23,370 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-03-23 11:58:23,414 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 125, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 137, in _parse_to_class_recoard
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+  File "<unknown>", line 1
+    class ErrorClass
+                   ^
+SyntaxError: invalid syntax
+2020-03-23 12:00:00,455 DEBUG graphviz.files write 743 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/d_1/uml0'
+2020-03-23 12:00:00,456 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-23 12:00:58,666 DEBUG graphviz.files write 815 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml0'
+2020-03-23 12:00:58,667 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-23 12:01:12,138 ERROR __main__ load
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+KeyError: 'Movement'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 108, in do_Load
+    result = serializer.deserilize(splitargs.Input)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/serializer.py", line 20, in deserilize
+    data = db[name]
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 113, in __getitem__
+    f = BytesIO(self.dict[key.encode(self.keyencoding)])
+KeyError: b'Movement'
