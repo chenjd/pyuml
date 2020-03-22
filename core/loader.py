@@ -1,4 +1,3 @@
-
 class Loader:
 
     def load_from_file(self, path):

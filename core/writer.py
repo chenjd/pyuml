@@ -22,7 +22,7 @@ class DotWriter:
         todo
         """
         for index in range(len(classes)):
-            dot_string = self._write_relationship(dot_string, classes[index]["name"], classes[index]["base_classes"])
+            dot_string = self._write_relationship(dot_string, classes[index].name, classes[index].parents)
         return dot_string
 
     def write_node(self, dot_string, classes):

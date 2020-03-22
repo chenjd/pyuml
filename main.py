@@ -1,6 +1,7 @@
 import argparse
 import shlex
 import logging
+import traceback
 
 from typed_ast import ast3
 from graphviz import Source
@@ -58,7 +59,7 @@ class PyUML(BaseCmd):
         Print version info
         """
         config = Config()
-        print("\nAra pyuml v" + config._version)
+        print("\nAra pyuml v" + config.version)
 
     def do_config(self, args):
         """
@@ -81,7 +82,49 @@ class PyUML(BaseCmd):
             dot_string = self._parse_to_dot(splitargs.Input)
             self._render_with_graphviz(dot_string)
         except:
+            print('Exception: Check the error log')
+            self.logger.exception("2uml")
             pass
+
+    def do_persistent(self, args):
+        """
+        Generate serialization data from AST obj.
+        """
+        parser = argparse.ArgumentParser(prog='read')
+        parser.add_argument('Input', help='input file')
+        parser.add_argument('Output', help='output file')
+        try:
+            splitargs = parser.parse_args(shlex.split(args))
+            serializer = Serializer()
+            serializer.serialize(1)
+
+        except:
+            print('Exception: Check the error log')
+            self.logger.exception("persistent")
+            pass
+
+    def do_2uml_from_binary(self, args):
+        """
+        Deserialize AST data from serialization data
+        """
+        parser = argparse.ArgumentParser(prog='read')
+        parser.add_argument('Input', help='input .ast file')
+        parser.add_argument('Output', help='output file')
+
+        try:
+            splitargs = parser.parse_args(shlex.split(args))
+            serializer = Serializer()
+            serializer.deserilize()
+
+        except:
+            print('Exception: Check the error log')
+            self.logger.exception("2uml_from_binary")
+            pass
+
+    def _setup_logger(self):
+        logging.basicConfig(filename='./log/error.log', level=logging.DEBUG,
+                            format='%(asctime)s %(levelname)s %(name)s %(message)s')
+        return logging.getLogger(__name__)
 
     def _parse_to_dot(self, args):
         """
@@ -100,46 +143,6 @@ class PyUML(BaseCmd):
     def _render_with_graphviz(self, dot):
         src = Source(dot)
         src.render(format='png', filename="result/uml")
-
-    def do_persistent(self, args):
-        """
-        Generate serialization data from AST obj.
-        """
-        parser = argparse.ArgumentParser(prog='read')
-        parser.add_argument('Input', help='input file')
-        parser.add_argument('Output', help='output file')
-        try:
-            splitargs = parser.parse_args(shlex.split(args))
-            serializer = Serializer()
-            serializer.serialize(1)
-
-        except:
-            self.logger.exception("persistent")
-            pass
-
-    def do_2uml_from_binary(self, args):
-        """
-        Deserialize AST data from serialization data
-        """
-        parser = argparse.ArgumentParser(prog='read')
-        parser.add_argument('Input', help='input .ast file')
-        parser.add_argument('Output', help='output file')
-
-        try:
-            splitargs = parser.parse_args(shlex.split(args))
-            serializer = Serializer()
-            serializer.deserilize()
-
-
-        except Exception as e:
-            print("ERROR", e)
-        except:
-            pass
-
-    def _setup_logger(self):
-        logging.basicConfig(filename='./log/myapp.log', level=logging.DEBUG,
-                            format='%(asctime)s %(levelname)s %(name)s %(message)s')
-        return logging.getLogger(__name__)
 
 
 if __name__ == '__main__':

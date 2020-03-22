@@ -1,9 +1,6 @@
 digraph "class" {
-    "Goods" [label="{Goods|-__init__\l}",shape="record"];
-    "Car" [label="{Car|+num_one : Integer\l+num_two : Integer\l+_Name : String\l|-__init__\l+GetOwner\l+SetOwner : Integer\l}",shape="record"];
-    "Car2" [label="{Car2|+num_one : Integer\l+num_two : Integer\l+_Name : String\l|-__init__\l+GetOwner\l+SetOwner\l}",shape="record"];
-    "Car3" [label="{Car3|+num_one : Integer\l+num_two : Integer\l+_Name : String\l|-__init__\l+GetOwner\l+SetOwner\l}",shape="record"];
-    "Car" -> "Goods"[arrowhead = "empty", arrowtail = "none"]
-    "Car2" -> "Car"[arrowhead = "empty", arrowtail = "none"]
-    "Car3" -> "Car"[arrowhead = "empty", arrowtail = "none"]
+    "Goods" [label="{Goods|-__init__\l|-__init__\l}",shape="record"];
+    "Car" [label="{Car|-__init__\l+num_one : Integer\l+num_two : Integer\l+_Name : String\l+GetOwner\l+SetOwner : Integer\l|-__init__\l+num_one : Integer\l+num_two : Integer\l+_Name : String\l+GetOwner\l+SetOwner : Integer\l}",shape="record"];
+    "Car2" [label="{Car2|-__init__\l+num_one : Integer\l+num_two : Integer\l+_Name : String\l+GetOwner\l+SetOwner\l|-__init__\l+num_one : Integer\l+num_two : Integer\l+_Name : String\l+GetOwner\l+SetOwner\l}",shape="record"];
+    "Car3" [label="{Car3|-__init__\l+num_one : Integer\l+num_two : Integer\l+_Name : String\l+GetOwner\l+SetOwner\l|-__init__\l+num_one : Integer\l+num_two : Integer\l+_Name : String\l+GetOwner\l+SetOwner\l}",shape="record"];
 }

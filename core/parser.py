@@ -31,7 +31,7 @@ class ClassRecorder:
     def methods(self):
         return self._methods
 
-    @members.setter
+    @methods.setter
     def methods(self, methods):
         self._methods = methods
 
