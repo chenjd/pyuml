@@ -50,3 +50,164 @@ TypeError: parse() arg 1 must be a string or bytes object
 2020-03-22 15:15:12,935 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
 2020-03-22 15:17:08,666 DEBUG graphviz.files write 677 bytes to 'result/uml'
 2020-03-22 15:17:08,666 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 17:01:17,852 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    dot_string = self._parse_to_dot(splitargs.Input)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 135, in _parse_to_dot
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+TypeError: parse() arg 1 must be a string or bytes object
+2020-03-22 18:48:12,516 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 86, in do_2uml
+    code_string_list = loader.load_from_file_or_directory(args)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/loader.py", line 8, in load_from_file_or_directory
+    raise IOError
+OSError
+2020-03-22 18:49:14,520 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-22 18:49:21,063 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 86, in do_2uml
+    code_string_list = loader.load_from_file_or_directory(args)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/loader.py", line 9, in load_from_file_or_directory
+    raise IOError
+OSError
+2020-03-22 18:50:00,185 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 141, in _parse_to_dot
+    tree = ast3.parse(code_string)
+NameError: name 'code_string' is not defined
+2020-03-22 18:50:40,157 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 140, in _parse_to_dot
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+TypeError: parse() arg 1 must be a string or bytes object
+2020-03-22 18:51:21,589 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-22 18:51:26,153 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 141, in _parse_to_dot
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+TypeError: parse() arg 1 must be a string or bytes object
+2020-03-22 18:54:40,677 DEBUG graphviz.files write 677 bytes to 'result/uml'
+2020-03-22 18:54:40,678 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 18:54:40,819 DEBUG graphviz.files write 68 bytes to 'result/uml'
+2020-03-22 18:54:40,819 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 18:54:40,831 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 89, in do_2uml
+    self._render_with_graphviz(dot_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 151, in _render_with_graphviz
+    src.render(format='png', filename="result/uml")
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/files.py", line 209, in render
+    quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 206, in render
+    run(cmd, capture_output=True, cwd=cwd, check=True, quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 172, in run
+    output=out, stderr=err)
+graphviz.backend.CalledProcessError: Command '['dot', '-Tpng', '-O', 'uml']' returned non-zero exit status 1. [stderr: b'Error: uml: syntax error in line 2 scanning a quoted string (missing endquote? longer than 16384?)\nString starting:"];\n}\n\n']
+2020-03-22 18:55:59,875 DEBUG graphviz.files write 68 bytes to 'result/uml'
+2020-03-22 18:55:59,876 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 18:55:59,895 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 89, in do_2uml
+    self._render_with_graphviz(dot_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 151, in _render_with_graphviz
+    src.render(format='png', filename="result/uml")
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/files.py", line 209, in render
+    quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 206, in render
+    run(cmd, capture_output=True, cwd=cwd, check=True, quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 172, in run
+    output=out, stderr=err)
+graphviz.backend.CalledProcessError: Command '['dot', '-Tpng', '-O', 'uml']' returned non-zero exit status 1. [stderr: b'Error: uml: syntax error in line 2 scanning a quoted string (missing endquote? longer than 16384?)\nString starting:"];\n}\n\n']
+2020-03-22 19:07:36,204 DEBUG graphviz.files write 677 bytes to 'result/uml'
+2020-03-22 19:07:36,206 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 19:07:36,308 DEBUG graphviz.files write 68 bytes to 'result/uml'
+2020-03-22 19:07:36,308 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 19:07:36,321 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 89, in do_2uml
+    self._render_with_graphviz(dot_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 151, in _render_with_graphviz
+    src.render(format='png', filename="result/uml")
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/files.py", line 209, in render
+    quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 206, in render
+    run(cmd, capture_output=True, cwd=cwd, check=True, quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 172, in run
+    output=out, stderr=err)
+graphviz.backend.CalledProcessError: Command '['dot', '-Tpng', '-O', 'uml']' returned non-zero exit status 1. [stderr: b'Error: uml: syntax error in line 2 scanning a quoted string (missing endquote? longer than 16384?)\nString starting:"];\n}\n\n']
+2020-03-22 19:15:55,722 DEBUG graphviz.files write 677 bytes to 'result/uml'
+2020-03-22 19:15:55,725 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 19:15:55,821 DEBUG graphviz.files write 68 bytes to 'result/uml'
+2020-03-22 19:15:55,822 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml']
+2020-03-22 19:15:55,833 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 89, in do_2uml
+    self._render_with_graphviz(dot_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 151, in _render_with_graphviz
+    src.render(format='png', filename="result/uml")
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/files.py", line 209, in render
+    quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 206, in render
+    run(cmd, capture_output=True, cwd=cwd, check=True, quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 172, in run
+    output=out, stderr=err)
+graphviz.backend.CalledProcessError: Command '['dot', '-Tpng', '-O', 'uml']' returned non-zero exit status 1. [stderr: b'Error: uml: syntax error in line 2 scanning a quoted string (missing endquote? longer than 16384?)\nString starting:"];\n}\n\n']
+2020-03-22 19:19:56,943 DEBUG graphviz.files write 677 bytes to 'result/uml0'
+2020-03-22 19:19:56,945 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 19:19:57,020 DEBUG graphviz.files write 68 bytes to 'result/uml1'
+2020-03-22 19:19:57,020 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-22 19:19:57,031 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    self._render_with_graphviz(index, dot_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 150, in _render_with_graphviz
+    src.render(format='png', filename="result/uml{}".format(index))
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/files.py", line 209, in render
+    quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 206, in render
+    run(cmd, capture_output=True, cwd=cwd, check=True, quiet=quiet)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/backend.py", line 172, in run
+    output=out, stderr=err)
+graphviz.backend.CalledProcessError: Command '['dot', '-Tpng', '-O', 'uml1']' returned non-zero exit status 1. [stderr: b'Error: uml1: syntax error in line 2 scanning a quoted string (missing endquote? longer than 16384?)\nString starting:"];\n}\n\n']

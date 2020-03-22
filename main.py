@@ -1,4 +1,5 @@
 import argparse
+import os
 import shlex
 import logging
 import traceback
@@ -79,8 +80,15 @@ class PyUML(BaseCmd):
         parser.add_argument('Output', help='output folder')
         try:
             splitargs = parser.parse_args(shlex.split(args))
-            dot_string = self._parse_to_dot(splitargs.Input)
-            self._render_with_graphviz(dot_string)
+
+            input_path = splitargs.Input
+            loader = Loader()
+            code_string_list = loader.load_from_file_or_directory(input_path)
+
+            for index, code_string in enumerate(code_string_list):
+                dot_string = self._parse_to_dot(code_string)
+                self._render_with_graphviz(index, dot_string)
+
         except:
             print('Exception: Check the error log')
             self.logger.exception("2uml")
@@ -126,23 +134,20 @@ class PyUML(BaseCmd):
                             format='%(asctime)s %(levelname)s %(name)s %(message)s')
         return logging.getLogger(__name__)
 
-    def _parse_to_dot(self, args):
+    def _parse_to_dot(self, code_string):
         """
         todo
         """
-        loader = Loader()
-        code_string = loader.load_from_file(args)
         tree = ast3.parse(code_string)
         class_parser = ClassParser()
         class_parser.visit(tree)
-        print(class_parser.classes_list)
 
         dot_string = DotWriter().write(class_parser.classes_list)
         return dot_string
 
-    def _render_with_graphviz(self, dot):
+    def _render_with_graphviz(self, index, dot):
         src = Source(dot)
-        src.render(format='png', filename="result/uml")
+        src.render(format='png', filename="result/uml{}".format(index))
 
 
 if __name__ == '__main__':

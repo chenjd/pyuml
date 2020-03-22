@@ -1,7 +1,0 @@
-digraph "classes" {
-charset="utf-8"
-rankdir=BT
-"0" [label="{Car|num_one : int\lnum_two : int\l|GetOwner()\lSetOwner(Name)\l}", shape="record"];
-"1" [label="{Goods|\l|}", shape="record"];
-"0" -> "1" [arrowhead="empty", arrowtail="none"];
-}
