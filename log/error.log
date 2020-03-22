@@ -257,3 +257,33 @@ Traceback (most recent call last):
   File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/loader.py", line 9, in load_from_file_or_directory
     raise IOError
 OSError
+2020-03-22 21:09:28,035 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml0'
+2020-03-22 21:09:28,039 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 21:09:28,126 DEBUG graphviz.files write 179 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml1'
+2020-03-22 21:09:28,127 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-22 21:09:28,156 DEBUG graphviz.files write 81 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml2'
+2020-03-22 21:09:28,156 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-03-22 21:09:28,183 DEBUG graphviz.files write 450 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml3'
+2020-03-22 21:09:28,183 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-03-22 21:09:28,213 DEBUG graphviz.files write 677 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml4'
+2020-03-22 21:09:28,214 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml4']
+2020-03-22 21:09:28,250 DEBUG graphviz.files write 167 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml5'
+2020-03-22 21:09:28,250 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml5']
+2020-03-22 21:09:28,281 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml6'
+2020-03-22 21:09:28,282 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml6']
+2020-03-22 21:10:41,552 DEBUG graphviz.files write 677 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml0'
+2020-03-22 21:10:41,555 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 21:32:22,340 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 142, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 148, in _parse_to_class_recoard
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+  File "<unknown>", line 1
+    class ErrorClass
+                   ^
+SyntaxError: invalid syntax

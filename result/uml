@@ -1,3 +1,0 @@
-digraph "class" {
-    "MyClass" [label="{MyClass|,shape="record"];
-}
