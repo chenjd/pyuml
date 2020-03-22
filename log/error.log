@@ -357,3 +357,144 @@ Traceback (most recent call last):
   File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
     _sys.exit(status)
 SystemExit: 2
+2020-03-23 09:29:39,791 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    code_string_list = loader.load_from_file_or_directory(input_path)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/loader.py", line 9, in load_from_file_or_directory
+    raise IOError
+OSError
+2020-03-23 09:30:52,115 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    code_string_list = loader.load_from_file_or_directory(input_path)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    code_string_list = loader.load_from_file_or_directory(input_path)
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-23 09:31:00,042 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 83, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1758, in parse_args
+    self.error(msg % ' '.join(argv))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-23 09:31:19,617 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 83, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1758, in parse_args
+    self.error(msg % ' '.join(argv))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-23 09:42:53,680 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/uml0'
+2020-03-23 09:42:53,682 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-23 09:42:53,762 DEBUG graphviz.files write 179 bytes to '/Users/chenjiadong/Documents/uml1'
+2020-03-23 09:42:53,764 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-23 09:42:53,793 DEBUG graphviz.files write 81 bytes to '/Users/chenjiadong/Documents/uml2'
+2020-03-23 09:42:53,794 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-03-23 09:42:53,820 DEBUG graphviz.files write 450 bytes to '/Users/chenjiadong/Documents/uml3'
+2020-03-23 09:42:53,824 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-03-23 09:42:53,854 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 148, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 161, in _parse_to_class_recoard
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+  File "<unknown>", line 1
+    class ErrorClass
+                   ^
+SyntaxError: invalid syntax
+2020-03-23 09:43:38,139 DEBUG graphviz.files write 743 bytes to '/Users/chenjiadong/Documents/uml0'
+2020-03-23 09:43:38,140 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-23 09:44:18,379 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 149, in _parse_to_dot
+    self._persistent_to_file(class_parser.classes_list)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 157, in _persistent_to_file
+    serializer.serialize(obj)
+TypeError: serialize() missing 1 required positional argument: 'obj'
+2020-03-23 09:45:27,754 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 149, in _parse_to_dot
+    self._persistent_to_file(class_parser.classes_list)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 158, in _persistent_to_file
+    raise SystemError
+SystemError
+2020-03-23 09:50:14,403 ERROR __main__ load
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+KeyError: 'Car'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 108, in do_Load
+    result = serializer.deserilize(splitargs.Input)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/serializer.py", line 18, in deserilize
+    data = db[path]
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 113, in __getitem__
+    f = BytesIO(self.dict[key.encode(self.keyencoding)])
+KeyError: b'Car'
+2020-03-23 09:51:35,864 DEBUG graphviz.files write 743 bytes to '/Users/chenjiadong/Documents/uml0'
+2020-03-23 09:51:35,866 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-23 09:51:52,610 ERROR __main__ load
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 106, in do_Load
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1993, in _parse_known_args
+    start_index = consume_optional(start_index)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1933, in consume_optional
+    take_action(action, args, option_string)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1861, in take_action
+    action(self, namespace, argument_values, option_string)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1044, in __call__
+    parser.exit()
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 0
+2020-03-23 09:52:55,726 ERROR __main__ load
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+KeyError: 'Car'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 108, in do_Load
+    result = serializer.deserilize(splitargs.Input)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/serializer.py", line 19, in deserilize
+    data = db[name]
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 113, in __getitem__
+    f = BytesIO(self.dict[key.encode(self.keyencoding)])
+KeyError: b'Car'
+2020-03-23 09:53:19,226 DEBUG graphviz.files write 743 bytes to '/Users/chenjiadong/Documents/uml0'
+2020-03-23 09:53:19,226 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']

@@ -95,34 +95,18 @@ class PyUML(BaseCmd):
             self.logger.exception("2uml")
             pass
 
-    def do_persistent(self, args):
-        """
-        Generate serialization data from AST obj.
-        """
-        parser = argparse.ArgumentParser(prog='read')
-        parser.add_argument('Input', help='input file')
-        parser.add_argument('Output', help='output folder')
-        try:
-            splitargs = parser.parse_args(shlex.split(args))
-            serializer = Serializer()
-            serializer.serialize(1)
-
-        except:
-            print('Exception: Check the error log')
-            self.logger.exception("persistent")
-            pass
-
     def do_Load(self, args):
         """
         Deserialize AST data from serialization data
         """
         parser = argparse.ArgumentParser(prog='read')
-        parser.add_argument('Input', help='input file')
+        parser.add_argument('Input', help='input class name')
 
         try:
             splitargs = parser.parse_args(shlex.split(args))
             serializer = Serializer()
-            serializer.deserilize()
+            result = serializer.deserilize(splitargs.Input)
+            print(result)
 
         except:
             print('Exception: Check the error log')
@@ -139,9 +123,15 @@ class PyUML(BaseCmd):
         todo
         """
         class_parser = self._parse_to_class_recoard(code_string)
-
+        self._persistent_to_file(class_parser.classes_list)
         dot_string = DotWriter().write(class_parser.classes_list)
         return dot_string
+
+    def _persistent_to_file(self, obj_list):
+        assert obj_list is not None
+        serializer = Serializer()
+        for obj in obj_list:
+            serializer.serialize(obj)
 
     def _parse_to_class_recoard(self, code_string):
         tree = ast3.parse(code_string)
