@@ -287,3 +287,73 @@ Traceback (most recent call last):
     class ErrorClass
                    ^
 SyntaxError: invalid syntax
+2020-03-22 21:38:35,162 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 91, in do_2uml
+    self._render_with_graphviz(output_path, index, dot_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 155, in _render_with_graphviz
+    src.render(format='png', filename='uml{}'.format(index), directory=output_path)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/files.py", line 202, in render
+    filepath = self.save(filename, directory)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/files.py", line 161, in save
+    tools.mkdirs(filepath)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/tools.py", line 31, in mkdirs
+    _compat.makedirs(dirname, mode=mode, exist_ok=True)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/graphviz/_compat.py", line 57, in makedirs
+    return os.makedirs(name, mode, exist_ok=exist_ok)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/os.py", line 223, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_py_code/OOPBasicClass.py'
+2020-03-22 21:39:25,956 DEBUG graphviz.files write 677 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_py_code/OOPBasicClass.p/uml0'
+2020-03-22 21:39:25,957 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 21:53:33,637 DEBUG graphviz.files write 722 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml0'
+2020-03-22 21:53:33,643 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 21:54:34,673 DEBUG graphviz.files write 743 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml0'
+2020-03-22 21:54:34,674 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 21:55:28,889 DEBUG graphviz.files write 743 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml0'
+2020-03-22 21:55:28,890 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-22 21:55:32,903 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-22 21:55:35,148 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-22 21:55:43,770 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2

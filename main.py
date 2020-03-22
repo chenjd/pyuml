@@ -112,13 +112,12 @@ class PyUML(BaseCmd):
             self.logger.exception("persistent")
             pass
 
-    def do_2uml_from_binary(self, args):
+    def do_Load(self, args):
         """
         Deserialize AST data from serialization data
         """
         parser = argparse.ArgumentParser(prog='read')
-        parser.add_argument('Input', help='input .ast file')
-        parser.add_argument('Output', help='output file')
+        parser.add_argument('Input', help='input file')
 
         try:
             splitargs = parser.parse_args(shlex.split(args))
@@ -127,7 +126,7 @@ class PyUML(BaseCmd):
 
         except:
             print('Exception: Check the error log')
-            self.logger.exception("2uml_from_binary")
+            self.logger.exception("load")
             pass
 
     def _setup_logger(self):

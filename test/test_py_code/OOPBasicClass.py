@@ -2,18 +2,18 @@
 from traitlets import Integer
 
 
-class Goods:
+class MovementObject:
     def __init__(self):
         pass
 
 
-class Car(Goods):
+class Car(MovementObject):
     def __init__(self):
         self.num_one = 1  # type: Integer
         self.num_two = 2  # type: Integer
         self._Name = "private"  # type: String
 
-    def GetOwner(self):
+    def GetOwner(self):  # type: void
         print("Owner is ", self._Name)
 
     def SetOwner(self, Name: Integer):  # type: Integer
@@ -26,10 +26,10 @@ class Car2(Car):
         self.num_two = 2  # type: Integer
         self._Name = "private"  # type: String
 
-    def GetOwner(self):
+    def GetOwner(self):  # type: void
         print("Owner is ", self._Name)
 
-    def SetOwner(self, Name):
+    def SetOwner(self, Name):  # type: String
         self._Name = Name
 
 
@@ -39,10 +39,10 @@ class Car3(Car):
         self.num_two = 2  # type: Integer
         self._Name = "private"  # type: String
 
-    def GetOwner(self):
+    def GetOwner(self): # type: void
         print("Owner is ", self._Name)
 
-    def SetOwner(self, Name):
+    def SetOwner(self, Name):  # type: String
         self._Name = Name
 
 
