@@ -76,8 +76,8 @@ class PyUML(BaseCmd):
         Generate UML diagram from Python source code
         """
         parser = argparse.ArgumentParser(prog='2uml')
-        parser.add_argument('Input', help='input file/folder')
-        parser.add_argument('Output', help='output folder')
+        parser.add_argument('input', help='input file/folder')
+        parser.add_argument('output', help='output folder')
         try:
             splitargs = parser.parse_args(shlex.split(args))
 
@@ -100,7 +100,7 @@ class PyUML(BaseCmd):
         Deserialize AST data from serialization data
         """
         parser = argparse.ArgumentParser(prog='load')
-        parser.add_argument('Input', help='input class name')
+        parser.add_argument('input', help='input class name')
 
         try:
             splitargs = parser.parse_args(shlex.split(args))

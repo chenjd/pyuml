@@ -799,3 +799,87 @@ Traceback (most recent call last):
   File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
     _sys.exit(status)
 SystemExit: 0
+2020-03-23 14:13:31,642 ERROR __main__ load
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 106, in do_load
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-23 14:14:20,398 ERROR __main__ load
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 106, in do_load
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1993, in _parse_known_args
+    start_index = consume_optional(start_index)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1933, in consume_optional
+    take_action(action, args, option_string)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1861, in take_action
+    action(self, namespace, argument_values, option_string)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1044, in __call__
+    parser.exit()
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 0
+2020-03-23 15:26:39,108 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-23 15:26:52,553 ERROR __main__ load
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+KeyError: 'd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 108, in do_load
+    result = serializer.deserilize(splitargs.Input)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/serializer.py", line 20, in deserilize
+    data = db[name]
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 113, in __getitem__
+    f = BytesIO(self.dict[key.encode(self.keyencoding)])
+KeyError: b'd'
+2020-03-23 15:58:47,937 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1993, in _parse_known_args
+    start_index = consume_optional(start_index)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1933, in consume_optional
+    take_action(action, args, option_string)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1861, in take_action
+    action(self, namespace, argument_values, option_string)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1044, in __call__
+    parser.exit()
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 0

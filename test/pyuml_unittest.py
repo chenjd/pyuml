@@ -304,7 +304,6 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(expected_m_count, cls_data['Methods'])
 
 
-
 if __name__ == '__main__':
     test_dir = os.path.dirname(sys.argv[0])
     TESTS_DIR = os.path.join(test_dir, TESTS_DIR)
