@@ -95,11 +95,11 @@ class PyUML(BaseCmd):
             self.logger.exception("2uml")
             pass
 
-    def do_Load(self, args):
+    def do_load(self, args):
         """
         Deserialize AST data from serialization data
         """
-        parser = argparse.ArgumentParser(prog='read')
+        parser = argparse.ArgumentParser(prog='load')
         parser.add_argument('Input', help='input class name')
 
         try:
