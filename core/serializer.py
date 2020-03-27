@@ -16,6 +16,7 @@ class Serializer:
             print(obj.name)
 
     def deserilize(self, name):
+        assert isinstance(name, str)
         with shelve.open(self._path) as db:
             data = db[name]
 

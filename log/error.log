@@ -883,3 +883,124 @@ Traceback (most recent call last):
   File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
     _sys.exit(status)
 SystemExit: 0
+2020-03-23 16:22:58,182 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-23 16:23:01,221 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-23 16:23:04,560 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1993, in _parse_known_args
+    start_index = consume_optional(start_index)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1933, in consume_optional
+    take_action(action, args, option_string)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1861, in take_action
+    action(self, namespace, argument_values, option_string)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1044, in __call__
+    parser.exit()
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 0
+2020-03-27 20:29:39,048 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 84, in do_2uml
+    input_path = splitargs.Input
+AttributeError: 'Namespace' object has no attribute 'Input'
+2020-03-27 20:30:23,685 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 84, in do_2uml
+    input_path = splitargs.Input
+AttributeError: 'Namespace' object has no attribute 'Input'
+2020-03-27 20:32:50,903 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 82, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-27 20:33:07,497 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 125, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 139, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 63, in visit_Module
+    assert isinstance(node, Module)
+AssertionError
+2020-03-27 20:36:04,594 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 125, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 139, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 64, in visit_Module
+    assert isinstance(node, ModuleDef)
+NameError: name 'ModuleDef' is not defined
+2020-03-27 20:37:20,876 DEBUG graphviz.files write 815 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-27 20:37:20,878 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-27 20:42:56,244 DEBUG graphviz.files write 815 bytes to '/Users/chenjiadong/Documents/funnyCode/uml0'
+2020-03-27 20:42:56,245 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-27 20:46:36,971 ERROR __main__ 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 90, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 127, in _parse_to_dot
+    dot_string = DotWriter().write(class_parser.classes_list)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/writer.py", line 14, in write
+    dot_string = self.write_node(dot_string, classes)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/writer.py", line 35, in write_node
+    dot_string = self._write_class(dot_string, index, classes[index].name)
+TypeError: _write_class() takes 3 positional arguments but 4 were given
+2020-03-27 20:47:07,913 DEBUG graphviz.files write 815 bytes to '/Users/chenjiadong/Documents/funnyCode/uml0'
+2020-03-27 20:47:07,914 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-27 20:51:01,597 DEBUG graphviz.files write 815 bytes to '/Users/chenjiadong/Documents/funnyCode/uml0'
+2020-03-27 20:51:01,600 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-27 20:53:58,644 DEBUG graphviz.files write 815 bytes to '/Users/chenjiadong/Documents/funnyCode/uml0'
+2020-03-27 20:53:58,647 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']

@@ -81,8 +81,8 @@ class PyUML(BaseCmd):
         try:
             splitargs = parser.parse_args(shlex.split(args))
 
-            input_path = splitargs.Input
-            output_path = splitargs.Output
+            input_path = splitargs.input
+            output_path = splitargs.output
             loader = Loader()
             code_string_list = loader.load_from_file_or_directory(input_path)
 
@@ -105,7 +105,7 @@ class PyUML(BaseCmd):
         try:
             splitargs = parser.parse_args(shlex.split(args))
             serializer = Serializer("artifacts/ast.db")  # the path of ast.db move to config later
-            result = serializer.deserilize(splitargs.Input)
+            result = serializer.deserilize(splitargs.input)
             print(result)
 
         except:

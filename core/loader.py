@@ -15,8 +15,7 @@ class Loader:
 
     def _load_from_file(self, path):
         """
-        :param path:
-        :return:
+        todo
         """
         # path = '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/OOPBasicClass.py'
         if not path.endswith('.py'):
@@ -26,6 +25,8 @@ class Loader:
             f = open(path, "r")
             string = f.read()
             f.close()
+            assert isinstance(string, str)
+
             ret_string = list()
             ret_string.append(string)
             return ret_string

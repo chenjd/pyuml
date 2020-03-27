@@ -1,4 +1,5 @@
 from typed_ast import ast3
+from typed_ast.ast3 import ClassDef, Module, FunctionDef
 
 
 class ClassRecorder:
@@ -58,6 +59,7 @@ class ClassParser(ast3.NodeVisitor):
         :param node:
         :return:
         """
+        assert isinstance(node, Module)
         for n in node.body:
             self.visit(n)
 
@@ -65,15 +67,7 @@ class ClassParser(ast3.NodeVisitor):
         """
         todo
         """
-        assert node is not None
-
-        # class_dic = dict()
-        # class_dic['name'] = node.name
-        # class_dic['members'] = list()
-        # class_dic['methods'] = list()
-        # class_dic['base_classes'] = list()
-        #
-        # class_dic['base_classes'] = node.bases
+        assert isinstance(node, ClassDef)
 
         class_recorder = ClassRecorder(node.name, node.bases)
 
@@ -106,9 +100,10 @@ class ClassParser(ast3.NodeVisitor):
                                             else:
                                                 class_recorder.members.append('+' + target.attr + type_comment)
 
+        assert isinstance(class_recorder, ClassRecorder)
         self.classes_list.append(class_recorder)
         ast3.NodeVisitor.generic_visit(self, node)
 
     def visit_FunctionDef(self, node):
-        print(node.name)
+        assert isinstance(node, FunctionDef)
         self.generic_visit(node)
