@@ -1,8 +1,5 @@
 import argparse
-import os
 import shlex
-import logging
-import traceback
 
 from typed_ast import ast3
 from graphviz import Source
@@ -13,6 +10,7 @@ from core.loader import Loader
 from core.writer import DotWriter
 from core.serializer import Serializer
 from config.config import Config
+from utilities.logger import Logger
 
 
 class PyUML(BaseCmd):
@@ -47,7 +45,7 @@ class PyUML(BaseCmd):
 //       ~~~~~~~Ara BCDE321 Assessment~~~~~~~~~~~~
 //                
         """
-        self.logger = self._setup_logger()
+        self.logger = Logger.get_instance().logging
 
     def do_exit(self, args):
         """
@@ -112,11 +110,6 @@ class PyUML(BaseCmd):
             print('Exception: Check the error log')
             self.logger.exception("load")
             pass
-
-    def _setup_logger(self):
-        logging.basicConfig(filename='./log/error.log', level=logging.DEBUG,
-                            format='%(asctime)s %(levelname)s %(name)s %(message)s')
-        return logging.getLogger(__name__)
 
     def _parse_to_dot(self, code_string):
         """

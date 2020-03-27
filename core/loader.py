@@ -34,9 +34,6 @@ class Loader:
         except IOError:
             print("Could not load file:{}".format(path))
 
-        except:
-            pass
-
     def _load_from_directory(self, path):
         try:
             py_files = [os.path.join(path, fname) for fname in os.listdir(path) if fname.endswith('.py')]
@@ -52,8 +49,6 @@ class Loader:
         except IOError:
             print("Could not load file:{}".format(fname))
 
-        except:
-            pass
 
 
 
