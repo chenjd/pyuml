@@ -56,8 +56,13 @@ class ClassParser(ast3.NodeVisitor):
 
     def visit_Module(self, node):
         """
-        :param node:
-        :return:
+        >>> parser = ClassParser()
+        >>> parser.visit_Module(1)
+        Traceback (most recent call last):
+        AssertionError
+        >>> module = Module()
+        >>> module.body = {}
+        >>> parser.visit_Module(module)
         """
         assert isinstance(node, Module)
         for n in node.body:
@@ -65,7 +70,15 @@ class ClassParser(ast3.NodeVisitor):
 
     def visit_ClassDef(self, node):
         """
-        todo
+        >>> parser = ClassParser()
+        >>> parser.visit_ClassDef(1)
+        Traceback (most recent call last):
+        AssertionError
+        >>> class_def = ClassDef()
+        >>> class_def.name = ''
+        >>> class_def.bases = {}
+        >>> class_def.body = {}
+        >>> parser.visit_ClassDef(class_def)
         """
         assert isinstance(node, ClassDef)
 

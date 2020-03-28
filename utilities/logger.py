@@ -3,10 +3,25 @@ import os
 
 
 class Logger:
+    """
+    >>> obj1 = Logger()
+    >>> obj2 = Logger() # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    AssertionError
+    >>> obj3 = Logger.get_instance()
+    >>> obj1 == obj3
+    True
+    """
     __instance = None
 
     @staticmethod
     def get_instance():
+        """
+        >>> obj1 = Logger.get_instance()
+        >>> obj2 = Logger.get_instance()
+        >>> obj1 == obj2
+        True
+        """
         if Logger.__instance is None:
             Logger()
         return Logger.__instance
