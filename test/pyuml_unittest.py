@@ -39,7 +39,7 @@ class TestPyUmlAPI(unittest.TestCase):
     def test_loader_load_from_directory_find_out_py_file(self):
         loader = Loader()
         ret = loader.load_from_file_or_directory(TESTS_DIR)
-        expected_files_count = 8
+        expected_files_count = 9
         self.assertEqual(expected_files_count, len(ret))
 
     def test_loader_load_from_directory_not_exist_throw_exception(self):
@@ -151,7 +151,7 @@ class TestPyUmlAPI(unittest.TestCase):
         writer = DotWriter()
         result_dot = writer.write(class_parser.classes_list)
 
-        dot_path = os.path.join(TESTS_DIR2, "uml2")
+        dot_path = os.path.join(TESTS_DIR2, "uml3")
         with open(dot_path, 'r') as f:
             expected_dot = f.read()
 
@@ -168,7 +168,7 @@ class TestPyUmlAPI(unittest.TestCase):
         writer = DotWriter()
         result_dot = writer.write(class_parser.classes_list)
 
-        dot_path = os.path.join(TESTS_DIR2, "uml5")
+        dot_path = os.path.join(TESTS_DIR2, "uml7")
         with open(dot_path, 'r') as f:
             expected_dot = f.read()
 
@@ -185,7 +185,7 @@ class TestPyUmlAPI(unittest.TestCase):
         writer = DotWriter()
         result_dot = writer.write(class_parser.classes_list)
 
-        dot_path = os.path.join(TESTS_DIR2, "uml1")
+        dot_path = os.path.join(TESTS_DIR2, "uml2")
         with open(dot_path, 'r') as f:
             expected_dot = f.read()
 
@@ -202,7 +202,7 @@ class TestPyUmlAPI(unittest.TestCase):
         writer = DotWriter()
         result_dot = writer.write(class_parser.classes_list)
 
-        dot_path = os.path.join(TESTS_DIR2, "uml3")
+        dot_path = os.path.join(TESTS_DIR2, "uml5")
         with open(dot_path, 'r') as f:
             expected_dot = f.read()
 
@@ -302,6 +302,29 @@ class TestPyUmlAPI(unittest.TestCase):
         cls_data = serializer.deserilize('MyClass')
         expected_m_count = 3
         self.assertEqual(expected_m_count, cls_data['Methods'])
+
+    def test_parser_type_comments_type_annotation_result_same(self):
+        py_annotation_path = os.path.join(TESTS_DIR, "py_type_annotations.py")
+        py_comments_path = os.path.join(TESTS_DIR, "py_type_comments.py")
+        loader = Loader()
+        py_annotation_code = loader.load_from_file_or_directory(py_annotation_path)
+        py_comments_code = loader.load_from_file_or_directory(py_comments_path)
+
+        py_annotation_tree = ast3.parse(py_annotation_code[0])
+        py_comments_tree = ast3.parse(py_comments_code[0])
+
+        class_parser = ClassParser()
+        class_parser.visit(py_annotation_tree)
+        writer = DotWriter()
+        py_annotation_dot = writer.write(class_parser.classes_list)
+
+        class_parser.clear()
+        class_parser.visit(py_comments_tree)
+        py_comments_dot = writer.write(class_parser.classes_list)
+        self.assertEqual(py_annotation_dot, py_comments_dot)
+
+
+
 
 
 if __name__ == '__main__':

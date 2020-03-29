@@ -4,7 +4,9 @@ import os
 class Loader:
 
     def load_from_file_or_directory(self, path):
-        """
+        """ (str) -> list of str
+        Return list of str from one .py file of multiple .py files in a folder.
+
         >>> loader = Loader()
         >>> loader.load_from_file_or_directory('fake_path')
         Traceback (most recent call last):

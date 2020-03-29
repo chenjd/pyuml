@@ -1,3 +1,8 @@
 digraph "class" {
-    "MyClass" [label="{MyClass|+_name : String\l+_age : String\l+_three : String\l+_four : String\l+_five : String\l|-__init__\l}",shape="record"];
+    "BaseClass" [label="{BaseClass|-__init__()\l+say_hi()\l}",shape="record"];
+    "MyClassOne" [label="{MyClassOne|-__init__()\l}",shape="record"];
+    "MyClassTwo" [label="{MyClassTwo|-__init__()\l}",shape="record"];
+    "MyClassOne" -> "BaseClass"[arrowhead = "empty", arrowtail = "none"]
+    "MyClassTwo" -> "BaseClass"[arrowhead = "empty", arrowtail = "none"]
+    "MyClassTwo" -> "MyClassOne"[arrowhead = "empty", arrowtail = "none"]
 }

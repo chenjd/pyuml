@@ -19,6 +19,8 @@ class Serializer:
 
     def serialize(self, obj):
         """
+        save the count of methods of a class and the count of date member of a class
+
         >>> obj = Serializer('path')
         >>> obj.serialize(1)
         Traceback (most recent call last):

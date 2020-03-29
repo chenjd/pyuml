@@ -1,3 +1,10 @@
 digraph "class" {
-    "MyClass" [label="{MyClass|+_name : String\l+_age : String\l+_three : String\l+_four : String\l+_five : String\l|-__init__\l+_hi\l+bye\l}",shape="record"];
+    "MovementObject" [label="{MovementObject|-__init__()\l}",shape="record"];
+    "Car" [label="{Car|+num_one : int\l+num_two : float\l+name : str\l|-__init__()\l+get_user_name(user_id: int): str\l}",shape="record"];
+    "Car2" [label="{Car2|+num_one : int\l+num_two : float\l+name : str\l|-__init__()\l+get_user_name(user_id: int): str\l}",shape="record"];
+    "Car3" [label="{Car3|+num_one : int\l+num_two : float\l+name : str\l|-__init__()\l+get_user_name(user_id: int): str\l+greeting(user_id: int, content: str): str\l}",shape="record"];
+    "Car" -> "MovementObject"[arrowhead = "empty", arrowtail = "none"]
+    "Car2" -> "Car"[arrowhead = "empty", arrowtail = "none"]
+    "Car3" -> "Car"[arrowhead = "empty", arrowtail = "none"]
+    "Car3" -> "MovementObject"[arrowhead = "empty", arrowtail = "none"]
 }

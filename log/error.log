@@ -1004,3 +1004,580 @@ TypeError: _write_class() takes 3 positional arguments but 4 were given
 2020-03-27 20:51:01,600 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
 2020-03-27 20:53:58,644 DEBUG graphviz.files write 815 bytes to '/Users/chenjiadong/Documents/funnyCode/uml0'
 2020-03-27 20:53:58,647 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 13:34:07,595 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 80, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-29 13:37:01,784 DEBUG graphviz.files write 776 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 13:37:01,785 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 13:39:14,314 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 108, in visit_ClassDef
+    if isinstance(target.value, ast3.Name):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 108, in visit_ClassDef
+    if isinstance(target.value, ast3.Name):
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1060, in _pydevd_bundle.pydevd_cython_darwin_37_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 566, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 13:42:53,789 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 93, in visit_ClassDef
+    if child.name.startswith('__'):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 93, in visit_ClassDef
+    if child.name.startswith('__'):
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1060, in _pydevd_bundle.pydevd_cython_darwin_37_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 566, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 13:45:23,184 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 106, in visit_ClassDef
+    for target in code.targets:
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 106, in visit_ClassDef
+    for target in code.targets:
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1060, in _pydevd_bundle.pydevd_cython_darwin_37_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 566, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 13:56:07,248 DEBUG graphviz.files write 585 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 13:56:07,250 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 14:04:33,856 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 104, in visit_ClassDef
+    print()
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 104, in visit_ClassDef
+    print()
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 14:04:52,292 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 104, in visit_ClassDef
+    self._parse_type_annotations(code, class_recorder)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 136, in _parse_type_annotations
+    for target in code.targets:
+AttributeError: 'AnnAssign' object has no attribute 'targets'
+2020-03-29 14:09:25,183 DEBUG graphviz.files write 669 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 14:09:25,185 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 14:11:13,035 DEBUG graphviz.files write 753 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 14:11:13,035 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 14:21:23,662 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 104, in visit_ClassDef
+    self._parse_type_annotations(code, class_recorder)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 136, in _parse_type_annotations
+    for target in code.targets:
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 136, in _parse_type_annotations
+    for target in code.targets:
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 14:22:05,156 DEBUG graphviz.files write 727 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 14:22:05,157 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 14:23:51,224 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml0'
+2020-03-29 14:23:51,228 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 14:23:51,307 DEBUG graphviz.files write 753 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml1'
+2020-03-29 14:23:51,308 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-29 14:23:51,343 DEBUG graphviz.files write 179 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml2'
+2020-03-29 14:23:51,344 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-03-29 14:23:51,373 DEBUG graphviz.files write 81 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml3'
+2020-03-29 14:23:51,374 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-03-29 14:23:51,418 DEBUG graphviz.files write 727 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml4'
+2020-03-29 14:23:51,419 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml4']
+2020-03-29 14:23:51,459 DEBUG graphviz.files write 450 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml5'
+2020-03-29 14:23:51,461 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml5']
+2020-03-29 14:23:51,491 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 130, in _parse_to_class_recoard
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+  File "<unknown>", line 1
+    class ErrorClass
+                   ^
+SyntaxError: invalid syntax
+2020-03-29 14:27:36,552 DEBUG graphviz.files write 727 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 14:27:36,555 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 15:44:45,353 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 91, in visit_ClassDef
+    type_comment = " : " + child.type_comment
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 91, in visit_ClassDef
+    type_comment = " : " + child.type_comment
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1060, in _pydevd_bundle.pydevd_cython_darwin_37_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 566, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:00:11,778 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 111, in visit_ClassDef
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 111, in visit_ClassDef
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1060, in _pydevd_bundle.pydevd_cython_darwin_37_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 566, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 976, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 938, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:01:00,608 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 107, in visit_ClassDef
+    if child.name.startswith('__'):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 107, in visit_ClassDef
+    if child.name.startswith('__'):
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1060, in _pydevd_bundle.pydevd_cython_darwin_37_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 566, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:04:19,433 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 69, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 107, in visit_ClassDef
+    if child.name.startswith('__'):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 107, in visit_ClassDef
+    if child.name.startswith('__'):
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1060, in _pydevd_bundle.pydevd_cython_darwin_37_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 566, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:04:41,386 DEBUG graphviz.files write 727 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:04:41,387 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 16:06:31,385 DEBUG graphviz.files write 727 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:06:31,385 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 16:12:08,847 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 70, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 98, in visit_ClassDef
+    for arg in child.args.args:
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 98, in visit_ClassDef
+    for arg in child.args.args:
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:13:01,627 DEBUG graphviz.files write 735 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:13:01,628 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 16:13:53,132 DEBUG graphviz.files write 817 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:13:53,132 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 16:15:45,273 DEBUG graphviz.files write 825 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:15:45,273 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 16:16:21,318 DEBUG graphviz.files write 825 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:16:21,318 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 16:17:24,666 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 70, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 123, in visit_ClassDef
+    for code in child.body:
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 123, in visit_ClassDef
+    for code in child.body:
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:18:21,517 DEBUG graphviz.files write 855 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:18:21,518 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 16:38:27,306 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 70, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 96, in visit_ClassDef
+    if isinstance(child.args, ast3.arguments):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 96, in visit_ClassDef
+    if isinstance(child.args, ast3.arguments):
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:42:23,517 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 70, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 96, in visit_ClassDef
+    if isinstance(child.args, ast3.arguments):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 96, in visit_ClassDef
+    if isinstance(child.args, ast3.arguments):
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:45:22,966 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 70, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 96, in visit_ClassDef
+    if isinstance(child.args, ast3.arguments):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 96, in visit_ClassDef
+    if isinstance(child.args, ast3.arguments):
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:46:28,719 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 70, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 96, in visit_ClassDef
+    if isinstance(child.args, ast3.arguments):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 96, in visit_ClassDef
+    if isinstance(child.args, ast3.arguments):
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:56:23,424 DEBUG graphviz.files write 832 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:56:23,426 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 16:58:09,613 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 132, in _parse_to_class_recoard
+    class_parser.visit(tree)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 70, in visit_Module
+    self.visit(n)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 279, in visit
+    return visitor(node)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 102, in visit_ClassDef
+    argument_info += ': ' + arg.type_comment
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/parser.py", line 102, in visit_ClassDef
+    argument_info += ': ' + arg.type_comment
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 1470, in _pydevd_bundle.pydevd_cython_darwin_37_64.ThreadTracer.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 855, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 846, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_37_64.pyx", line 288, in _pydevd_bundle.pydevd_cython_darwin_37_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1099, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1114, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2020-03-29 16:58:15,262 DEBUG graphviz.files write 832 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:58:15,262 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 16:59:10,019 DEBUG graphviz.files write 832 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
+2020-03-29 16:59:10,020 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 17:01:37,829 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml0'
+2020-03-29 17:01:37,831 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 17:01:37,886 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml1'
+2020-03-29 17:01:37,886 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-29 17:01:37,922 DEBUG graphviz.files write 185 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml2'
+2020-03-29 17:01:37,922 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-03-29 17:01:37,951 DEBUG graphviz.files write 83 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml3'
+2020-03-29 17:01:37,952 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-03-29 17:01:37,983 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml4'
+2020-03-29 17:01:37,983 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml4']
+2020-03-29 17:01:38,019 DEBUG graphviz.files write 458 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml5'
+2020-03-29 17:01:38,019 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml5']
+2020-03-29 17:01:38,054 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/main.py", line 130, in _parse_to_class_recoard
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+  File "<unknown>", line 1
+    class ErrorClass
+                   ^
+SyntaxError: invalid syntax
+2020-03-29 17:08:53,172 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml0'
+2020-03-29 17:08:53,174 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-29 17:08:53,266 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml1'
+2020-03-29 17:08:53,266 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-29 17:08:53,302 DEBUG graphviz.files write 185 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml2'
+2020-03-29 17:08:53,303 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-03-29 17:08:53,333 DEBUG graphviz.files write 83 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml3'
+2020-03-29 17:08:53,334 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-03-29 17:08:53,377 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml4'
+2020-03-29 17:08:53,378 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml4']
+2020-03-29 17:08:53,416 DEBUG graphviz.files write 458 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml5'
+2020-03-29 17:08:53,416 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml5']
+2020-03-29 17:08:53,445 DEBUG graphviz.files write 19 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml6'
+2020-03-29 17:08:53,448 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml6']
+2020-03-29 17:08:53,470 DEBUG graphviz.files write 169 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml7'
+2020-03-29 17:08:53,471 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml7']
+2020-03-29 17:08:53,499 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/test/test_dot_code/uml8'
+2020-03-29 17:08:53,499 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml8']
+2020-03-29 17:13:06,905 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml0'
+2020-03-29 17:13:06,909 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
