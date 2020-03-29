@@ -1,4 +1,5 @@
 from core.parser import ClassRecorder
+from typed_ast import ast3
 
 
 class DotWriter:
@@ -128,7 +129,12 @@ class DotWriter:
         if len(relationship) == 0:
             return dot_string
         for base in relationship:
+            parent_name = ''
+            if isinstance(base, ast3.Name):
+                parent_name = base.id
+            elif isinstance(base, ast3.Attribute):
+                parent_name = base.attr
             dot_string += "    \"{}\" -> \"{}\"[arrowhead = \"empty\", arrowtail = \"none\"]\n".format(class_name,
-                                                                                                       base.id)
+                                                                                                       parent_name)
 
         return dot_string
