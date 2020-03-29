@@ -6,7 +6,7 @@ source code -> dot file -> png file
 
 
     ========================================
-    2uml  Load  config  exit  help  version
+    2uml  load  config  exit  help  version
 
     2uml:
     usage: 2uml [-h] Input Output
@@ -18,8 +18,8 @@ source code -> dot file -> png file
     optional arguments:
       -h, --help  show this help message and exit
     
-    Load:
-    usage: Load [-h] Input
+    load:
+    usage: load [-h] Input
 
     positional arguments:
       Input       input class name
