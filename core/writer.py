@@ -3,7 +3,7 @@ from core.parser import ClassRecorder
 
 class DotWriter:
     """
-    todo
+    Generate dot string from ClassRecorder
     """
 
     def __init__(self):

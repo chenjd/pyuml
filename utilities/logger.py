@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 
 
 class Logger:
@@ -28,7 +29,8 @@ class Logger:
 
     def __init__(self):
         assert Logger.__instance is None
-        self._path = './log'
+        root_dir = os.path.dirname(sys.argv[0])
+        self._path = os.path.join(root_dir, './log')
         self._logging = self._set_logging()
         Logger.__instance = self
 
@@ -41,6 +43,6 @@ class Logger:
         if not os.path.exists(self._path):
             os.mkdir(self._path)
 
-        logging.basicConfig(filename='./log/error.log', level=logging.DEBUG,
+        logging.basicConfig(filename=os.path.join(self._path, 'error.log'), level=logging.DEBUG,
                             format='%(asctime)s %(levelname)s %(name)s %(message)s')
         return logging.getLogger(__name__)
