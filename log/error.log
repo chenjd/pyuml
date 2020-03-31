@@ -1581,3 +1581,70 @@ SyntaxError: invalid syntax
 2020-03-29 17:08:53,499 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml8']
 2020-03-29 17:13:06,905 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml0'
 2020-03-29 17:13:06,909 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-31 22:11:47,367 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 80, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-31 22:12:13,266 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 119, in _parse_to_dot
+    self._persistent_to_file(class_parser.classes_list)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 125, in _persistent_to_file
+    serializer = Serializer('ast.db')
+TypeError: __init__() missing 1 required positional argument: 'file_name'
+2020-03-31 22:12:57,237 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml0'
+2020-03-31 22:12:57,238 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-31 22:12:57,318 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml1'
+2020-03-31 22:12:57,318 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-31 22:12:57,355 DEBUG graphviz.files write 185 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml2'
+2020-03-31 22:12:57,355 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-03-31 22:12:57,386 DEBUG graphviz.files write 83 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml3'
+2020-03-31 22:12:57,387 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-03-31 22:12:57,419 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml4'
+2020-03-31 22:12:57,420 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml4']
+2020-03-31 22:12:57,463 DEBUG graphviz.files write 458 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml5'
+2020-03-31 22:12:57,463 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml5']
+2020-03-31 22:12:57,492 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 130, in _parse_to_class_recoard
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+  File "<unknown>", line 1
+    class ErrorClass
+                   ^
+SyntaxError: invalid syntax
+2020-03-31 22:29:35,279 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 80, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-31 22:29:54,944 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/uml0'
+2020-03-31 22:29:54,945 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
