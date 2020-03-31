@@ -33,7 +33,7 @@ class Serializer:
         Traceback (most recent call last):
         AssertionError
 
-        >>> obj = Serializer('artifacts''path')
+        >>> obj = Serializer('artifacts', 'path')
         >>> target = ClassRecorder('test_name', list())
         >>> obj.serialize(target)
         test_name
