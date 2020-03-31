@@ -48,7 +48,9 @@ source code -> dot file -> png file
       ├── test_py_code
       └── pyuml_unittest.py
 ```
-
+## A Command Line Interpreter runs on Windows & macOS
+You can download it from the [release page](http://github.com/chenjd/pyuml/releases).
+![](./result/exe_in_windows.png)
 ## Support [Type Annotation](https://docs.python.org/3/library/typing.html) & [Type Comments](https://www.python.org/dev/peps/pep-0484/#type-comments)
 
     # Type Annotation
