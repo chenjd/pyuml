@@ -1581,3 +1581,201 @@ SyntaxError: invalid syntax
 2020-03-29 17:08:53,499 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml8']
 2020-03-29 17:13:06,905 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/result/uml0'
 2020-03-29 17:13:06,909 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-31 22:11:47,367 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 80, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-31 22:12:13,266 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 119, in _parse_to_dot
+    self._persistent_to_file(class_parser.classes_list)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 125, in _persistent_to_file
+    serializer = Serializer('ast.db')
+TypeError: __init__() missing 1 required positional argument: 'file_name'
+2020-03-31 22:12:57,237 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml0'
+2020-03-31 22:12:57,238 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-03-31 22:12:57,318 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml1'
+2020-03-31 22:12:57,318 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-03-31 22:12:57,355 DEBUG graphviz.files write 185 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml2'
+2020-03-31 22:12:57,355 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-03-31 22:12:57,386 DEBUG graphviz.files write 83 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml3'
+2020-03-31 22:12:57,387 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-03-31 22:12:57,419 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml4'
+2020-03-31 22:12:57,420 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml4']
+2020-03-31 22:12:57,463 DEBUG graphviz.files write 458 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git/uml5'
+2020-03-31 22:12:57,463 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml5']
+2020-03-31 22:12:57,492 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 130, in _parse_to_class_recoard
+    tree = ast3.parse(code_string)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/venv/lib/python3.7/site-packages/typed_ast/ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+  File "<unknown>", line 1
+    class ErrorClass
+                   ^
+SyntaxError: invalid syntax
+2020-03-31 22:29:35,279 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/pyuml/main.py", line 80, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2508, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2495, in exit
+    _sys.exit(status)
+SystemExit: 2
+2020-03-31 22:29:54,944 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRep_git_test/uml0'
+2020-03-31 22:29:54,945 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-04-01 04:15:31,301 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "C:/Users/miaomi/Downloads/pyuml-0.0.1/main.py", line 80, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "C:\Users\miaomi\Downloads\pyuml-0.0.1\utilities\argument_parser.py", line 6, in error
+    raise SystemExit
+SystemExit
+2020-04-01 04:16:59,280 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "C:/Users/miaomi/Downloads/pyuml-0.0.1/main.py", line 80, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "C:\Users\miaomi\Downloads\pyuml-0.0.1\utilities\argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit
+2020-04-01 04:17:12,991 ERROR utilities.logger load
+Traceback (most recent call last):
+  File "C:/Users/miaomi/Downloads/pyuml-0.0.1/main.py", line 104, in do_load
+    splitargs = parser.parse_args(shlex.split(args))
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "C:\Users\miaomi\Downloads\pyuml-0.0.1\utilities\argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit
+2020-04-01 04:20:47,497 DEBUG graphviz.files write 458 bytes to 'C:\\Users\\miaomi\\Downloads\\pyuml-\\uml0'
+2020-04-01 04:20:47,498 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-04-01 04:23:31,271 DEBUG graphviz.files write 458 bytes to 'C:\\Users\\miaomi\\Downloads\\pyuml-\\uml0'
+2020-04-01 04:23:31,272 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-04-01 04:28:46,429 DEBUG graphviz.files write 458 bytes to 'C:\\Users\\miaomi\\Downloads\\pyuml-\\uml0'
+2020-04-01 04:28:46,430 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-04-01 04:31:01,503 DEBUG graphviz.files write 458 bytes to 'C:\\Users\\miaomi\\Downloads\\pyuml-\\uml0'
+2020-04-01 04:31:01,504 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-04-01 04:33:00,137 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "C:/Users/miaomi/Downloads/pyuml-0.0.1/main.py", line 85, in do_2uml
+    code_string_list = loader.load_from_file_or_directory(input_path)
+  File "C:\Users\miaomi\Downloads\pyuml-0.0.1\core\loader.py", line 17, in load_from_file_or_directory
+    raise IOError
+OSError
+2020-04-01 04:33:11,894 DEBUG graphviz.files write 458 bytes to 'C:\\Users\\miaomi\\Downloads\\pyuml-\\uml0'
+2020-04-01 04:33:11,894 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-04-01 04:33:12,049 DEBUG graphviz.files write 83 bytes to 'C:\\Users\\miaomi\\Downloads\\pyuml-\\uml1'
+2020-04-01 04:33:12,050 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml1']
+2020-04-01 04:33:12,096 DEBUG graphviz.files write 169 bytes to 'C:\\Users\\miaomi\\Downloads\\pyuml-\\uml2'
+2020-04-01 04:33:12,097 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml2']
+2020-04-01 04:33:12,150 DEBUG graphviz.files write 185 bytes to 'C:\\Users\\miaomi\\Downloads\\pyuml-\\uml3'
+2020-04-01 04:33:12,152 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml3']
+2020-04-01 04:33:12,194 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "C:/Users/miaomi/Downloads/pyuml-0.0.1/main.py", line 88, in do_2uml
+    dot_string = self._parse_to_dot(code_string)
+  File "C:/Users/miaomi/Downloads/pyuml-0.0.1/main.py", line 118, in _parse_to_dot
+    class_parser = self._parse_to_class_recoard(code_string)
+  File "C:/Users/miaomi/Downloads/pyuml-0.0.1/main.py", line 130, in _parse_to_class_recoard
+    tree = ast3.parse(code_string)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\site-packages\typed_ast\ast3.py", line 62, in parse
+    return _ast3._parse(source, filename, mode, feature_version)
+  File "<unknown>", line 1
+    class ErrorClass
+                   ^
+SyntaxError: invalid syntax
+2020-04-01 04:34:22,215 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "C:/Users/miaomi/Downloads/pyuml-0.0.1/main.py", line 80, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1758, in parse_args
+    self.error(msg % ' '.join(argv))
+  File "C:\Users\miaomi\Downloads\pyuml-0.0.1\utilities\argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit
+2020-04-01 04:34:46,672 DEBUG graphviz.files write 827 bytes to 'C:\\Users\\miaomi\\Downloads\\pyuml-\\uml0'
+2020-04-01 04:34:46,672 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-04-01 04:53:51,569 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "C:/Users/miaomi/Downloads/pyuml/main.py", line 80, in do_2uml
+    splitargs = parser.parse_args(shlex.split(args))
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "C:\Users\miaomi\Downloads\pyuml\utilities\argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit
+2020-04-01 04:58:55,895 ERROR utilities.logger load
+Traceback (most recent call last):
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+KeyError: 'Car'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/miaomi/Downloads/pyuml/main.py", line 106, in do_load
+    result = serializer.deserilize(splitargs.input)
+  File "C:\Users\miaomi\Downloads\pyuml\core\serializer.py", line 56, in deserilize
+    data = db[name]
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\shelve.py", line 113, in __getitem__
+    f = BytesIO(self.dict[key.encode(self.keyencoding)])
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\dbm\dumb.py", line 153, in __getitem__
+    pos, siz = self._index[key]     # may raise KeyError
+KeyError: b'Car'
+2020-04-01 04:58:59,724 ERROR utilities.logger load
+Traceback (most recent call last):
+  File "C:/Users/miaomi/Downloads/pyuml/main.py", line 104, in do_load
+    splitargs = parser.parse_args(shlex.split(args))
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "D:\Users\miaomi\anaconda3\envs\pyuml-0.0.1\lib\argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "C:\Users\miaomi\Downloads\pyuml\utilities\argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit

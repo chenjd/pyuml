@@ -217,13 +217,13 @@ class TestPyUmlAPI(unittest.TestCase):
 
     def test_serializer_serialize_save_classname_as_key(self):
         local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data_methods.py")
-        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(target_dir)
+        serializer = Serializer(TESTS_DIR3, target_file)
         serializer.clear()
         serializer.serialize(class_parser.classes_list[0])
         self.assertEqual(serializer.get_keys()[0], "MyClass")
@@ -231,12 +231,13 @@ class TestPyUmlAPI(unittest.TestCase):
     def test_serializer_serialize_save_multiple_class_data(self):
         local_dir = os.path.join(TESTS_DIR, "py_src_code_classes_inheritance.py")
         target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(target_dir)
+        serializer = Serializer(TESTS_DIR3, target_file)
         serializer.clear()
         for cls in class_parser.classes_list:
             serializer.serialize(cls)
@@ -246,25 +247,25 @@ class TestPyUmlAPI(unittest.TestCase):
 
     def test_serializer_deserialize_file_do_not_exist(self):
         local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
-        target_dir = os.path.join(TESTS_DIR3, "fake_test.db")
+        target_file = "fake_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(target_dir)
+        serializer = Serializer(TESTS_DIR3, target_file)
         with self.assertRaises(KeyError):
             serializer.deserilize('Test')
 
     def test_serializer_deserialize_key_do_not_exist(self):
         local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
-        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(target_dir)
+        serializer = Serializer(TESTS_DIR3, target_file)
         serializer.clear()
         for cls in class_parser.classes_list:
             serializer.serialize(cls)
@@ -273,13 +274,13 @@ class TestPyUmlAPI(unittest.TestCase):
 
     def test_serializer_deserialize_member_count(self):
         local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
-        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(target_dir)
+        serializer = Serializer(TESTS_DIR3, target_file)
         serializer.clear()
         for cls in class_parser.classes_list:
             serializer.serialize(cls)
@@ -289,13 +290,13 @@ class TestPyUmlAPI(unittest.TestCase):
 
     def test_serializer_deserialize_method_count(self):
         local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data_methods.py")
-        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(target_dir)
+        serializer = Serializer(TESTS_DIR3, target_file)
         serializer.clear()
         for cls in class_parser.classes_list:
             serializer.serialize(cls)

@@ -1,4 +1,3 @@
-import argparse
 import shlex
 
 from typed_ast import ast3
@@ -11,6 +10,7 @@ from core.writer import DotWriter
 from core.serializer import Serializer
 from config.config import Config
 from utilities.logger import Logger
+from utilities.argument_parser import ArgumentParser
 
 
 class PyUML(BaseCmd):
@@ -73,7 +73,7 @@ class PyUML(BaseCmd):
         """
         Generate UML diagram from Python source code
         """
-        parser = argparse.ArgumentParser(prog='2uml')
+        parser = ArgumentParser(prog='2uml')
         parser.add_argument('input', help='input file/folder')
         parser.add_argument('output', help='output folder')
         try:
@@ -97,12 +97,12 @@ class PyUML(BaseCmd):
         """
         Deserialize AST data from serialization data
         """
-        parser = argparse.ArgumentParser(prog='load')
+        parser = ArgumentParser(prog='load')
         parser.add_argument('input', help='input class name')
 
         try:
             splitargs = parser.parse_args(shlex.split(args))
-            serializer = Serializer("artifacts/ast.db")  # the path of ast.db move to config later
+            serializer = Serializer('artifacts', 'ast.db')
             result = serializer.deserilize(splitargs.input)
             print(result)
 
@@ -122,7 +122,7 @@ class PyUML(BaseCmd):
 
     def _persistent_to_file(self, obj_list):
         assert obj_list is not None
-        serializer = Serializer("artifacts/ast.db")
+        serializer = Serializer('artifacts', 'ast.db')
         for obj in obj_list:
             serializer.serialize(obj)
 
