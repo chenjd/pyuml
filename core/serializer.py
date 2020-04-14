@@ -9,7 +9,7 @@ class Serializer:
     """
     >>> import os
     >>> import pathlib
-    >>> test_dir = pathlib.Path(__file__).parent.absolute()
+    >>> test_dir = os.path.dirname(pathlib.Path(__file__).parent.absolute())
     >>> folder = 'artifacts'
     >>> target_path = os.path.join(test_dir, folder)
     >>> obj = Serializer(target_path, 1)
@@ -34,7 +34,7 @@ class Serializer:
         save the count of methods of a class and the count of date member of a class
         >>> import os
         >>> import pathlib
-        >>> test_dir = pathlib.Path(__file__).parent.absolute()
+        >>> test_dir = os.path.dirname(pathlib.Path(__file__).parent.absolute())
         >>> folder = 'artifacts'
         >>> target_path = os.path.join(test_dir, folder)
         >>> obj = Serializer(target_path, 'path')
@@ -57,7 +57,7 @@ class Serializer:
         """
         >>> import os
         >>> import pathlib
-        >>> test_dir = pathlib.Path(__file__).parent.absolute()
+        >>> test_dir = os.path.dirname(pathlib.Path(__file__).parent.absolute())
         >>> folder = 'artifacts'
         >>> target_path = os.path.join(test_dir, folder)
         >>> obj = Serializer(target_path, 'path')

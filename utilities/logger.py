@@ -5,32 +5,36 @@ import sys
 
 class Logger:
     """
-    >>> obj1 = Logger()
-    >>> obj2 = Logger() # doctest: +IGNORE_EXCEPTION_DETAIL
+    >>> obj1 = Logger(True)
+    >>> obj2 = Logger(True) # doctest: +IGNORE_EXCEPTION_DETAIL
     Traceback (most recent call last):
     AssertionError
-    >>> obj3 = Logger.get_instance()
+    >>> obj3 = Logger.get_instance(True)
     >>> obj1 == obj3
     True
     """
     __instance = None
 
     @staticmethod
-    def get_instance():
+    def get_instance(is_doctest=False):
         """
-        >>> obj1 = Logger.get_instance()
-        >>> obj2 = Logger.get_instance()
+        >>> obj1 = Logger.get_instance(True)
+        >>> obj2 = Logger.get_instance(True)
         >>> obj1 == obj2
         True
         """
         if Logger.__instance is None:
-            Logger()
+            Logger(is_doctest)
         return Logger.__instance
 
-    def __init__(self):
+    def __init__(self, is_doctest=False):
         assert Logger.__instance is None
         root_dir = os.path.dirname(sys.argv[0])
-        self._path = os.path.join(root_dir, './log')
+        if is_doctest:
+            import pathlib
+            root_dir = os.path.dirname(pathlib.Path(__file__).parent.absolute())
+
+        self._path = os.path.join(root_dir, 'log')
         self._logging = self._set_logging()
         Logger.__instance = self
 
