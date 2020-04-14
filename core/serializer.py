@@ -37,12 +37,12 @@ class Serializer:
         >>> test_dir = os.path.dirname(pathlib.Path(__file__).parent.absolute())
         >>> folder = 'artifacts'
         >>> target_path = os.path.join(test_dir, folder)
-        >>> obj = Serializer(target_path, 'path')
+        >>> obj = Serializer(target_path, 'path.db')
         >>> obj.serialize(1)
         Traceback (most recent call last):
         AssertionError
 
-        >>> obj = Serializer(target_path, 'path')
+        >>> obj = Serializer(target_path, 'path.db')
         >>> target = ClassRecorder('test_name', list())
         >>> obj.serialize(target)
         test_name
