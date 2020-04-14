@@ -9,7 +9,7 @@ class BaseCmd(cmd.Cmd):
 
     def do_help(self, args):
         """
-        todo
+        Help Information
         """
         cmd.Cmd.do_help(self, args)
 

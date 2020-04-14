@@ -9,23 +9,36 @@ source code -> dot file -> png file
     2uml  load  config  exit  help  version
 
     2uml:
-    usage: 2uml [-h] Input Output
+    usage: 2uml [-h] input output
+    
+    Generate UML diagram from Python source code
 
     positional arguments:
-      Input       input file/folder
-      Output      output folder
+      input       input file/folder
+      output      output folder
 
     optional arguments:
       -h, --help  show this help message and exit
     
     load:
-    usage: load [-h] Input
+    usage: load [-h] input
+    
+    Deserialize AST data from serialization data
 
     positional arguments:
-      Input       input class name
+      input       input class name
 
     optional arguments:
       -h, --help  show this help message and exit
+      
+    config:
+    Print config info
+    
+    version:
+    Print version info
+    
+    exit:
+    Exit the app
       
 ## Project Layout
 ```none

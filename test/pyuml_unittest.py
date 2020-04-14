@@ -4,52 +4,58 @@ import sys
 import unittest
 
 from typed_ast import ast3
+import pathlib
 
 from core.loader import Loader
 from core.parser import ClassParser
 from core.serializer import Serializer
 from core.writer import DotWriter
 
-TESTS_DIR = 'test_py_code'
-TESTS_DIR2 = 'test_dot_code'
-TESTS_DIR3 = 'test_db'
-
 
 class TestPyUmlAPI(unittest.TestCase):
 
+    def setUp(self) -> None:
+        test_py_dir = 'test_py_code'
+        test_dot_dir = 'test_dot_code'
+        test_db_dir = 'test_db'
+        test_dir = pathlib.Path(__file__).parent.absolute()
+        self.test_py_dir = os.path.join(test_dir, test_py_dir)
+        self.test_dot_dir = os.path.join(test_dir, test_dot_dir)
+        self.test_db_dir = os.path.join(test_dir, test_db_dir)
+
     def test_loader_load_from_file_success(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_hello_world.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_hello_world.py")
         loader = Loader()
         loaded_code = loader.load_from_file_or_directory(local_dir)
         expected_code = """class MyClass:\n    i = 12345\n"""
         self.assertMultiLineEqual(expected_code, loaded_code[0])
 
     def test_loader_load_from_file_not_exist_throw_exception(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_hello_.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_hello_.py")
         loader = Loader()
         with self.assertRaises(IOError):
             loader.load_from_file_or_directory(local_dir)
 
     def test_loader_load_from_file_file_type_wrong_throw_exception(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_hello_world.py1")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_hello_world.py1")
         loader = Loader()
         with self.assertRaises(TypeError):
             loader.load_from_file_or_directory(local_dir)
 
     def test_loader_load_from_directory_find_out_py_file(self):
         loader = Loader()
-        ret = loader.load_from_file_or_directory(TESTS_DIR)
+        ret = loader.load_from_file_or_directory(self.test_py_dir)
         expected_files_count = 9
         self.assertEqual(expected_files_count, len(ret))
 
     def test_loader_load_from_directory_not_exist_throw_exception(self):
-        local_dir = os.path.join(TESTS_DIR, "fake_folder")
+        local_dir = os.path.join(self.test_py_dir, "fake_folder")
         loader = Loader()
         with self.assertRaises(IOError):
             loader.load_from_file_or_directory(local_dir)
 
     def test_parser_parse_only_class_define(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_only_class_def.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_only_class_def.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -63,7 +69,7 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(expected_memober_count, len(class_parser.classes_list[0].methods))
 
     def test_parser_parse_class_with_constructor(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_constructor.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_constructor.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -78,7 +84,7 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(expected_methods_count, len(class_parser.classes_list[0].methods))
 
     def test_parser_parse_class_with_constructor_data_members(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_data.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -93,7 +99,7 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(expected_methods_count, len(class_parser.classes_list[0].methods))
 
     def test_parser_parse_class_with_constructor_data_members_methods(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data_methods.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_data_methods.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -108,7 +114,7 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(expected_methods_count, len(class_parser.classes_list[0].methods))
 
     def test_parser_parse_classes_inheritance(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_classes_inheritance.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_classes_inheritance.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -124,7 +130,7 @@ class TestPyUmlAPI(unittest.TestCase):
                 self.assertEqual(2, len(cla.parents))
 
     def test_writter_write_dot_only_class_define(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_only_class_def.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_only_class_def.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -134,14 +140,14 @@ class TestPyUmlAPI(unittest.TestCase):
         writer = DotWriter()
         result_dot = writer.write(class_parser.classes_list)
 
-        dot_path = os.path.join(TESTS_DIR2, "uml0")
+        dot_path = os.path.join(self.test_dot_dir, "uml0")
         with open(dot_path, 'r') as f:
             expected_dot = f.read()
 
         self.assertMultiLineEqual(expected_dot, result_dot)
 
     def test_writter_write_dot_class_with_constructor(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_constructor.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_constructor.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -151,14 +157,14 @@ class TestPyUmlAPI(unittest.TestCase):
         writer = DotWriter()
         result_dot = writer.write(class_parser.classes_list)
 
-        dot_path = os.path.join(TESTS_DIR2, "uml3")
+        dot_path = os.path.join(self.test_dot_dir, "uml3")
         with open(dot_path, 'r') as f:
             expected_dot = f.read()
 
         self.assertMultiLineEqual(expected_dot, result_dot)
 
     def test_writter_write_dot_class_with_constructor_data_members(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_data.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -168,14 +174,14 @@ class TestPyUmlAPI(unittest.TestCase):
         writer = DotWriter()
         result_dot = writer.write(class_parser.classes_list)
 
-        dot_path = os.path.join(TESTS_DIR2, "uml7")
+        dot_path = os.path.join(self.test_dot_dir, "uml7")
         with open(dot_path, 'r') as f:
             expected_dot = f.read()
 
         self.assertMultiLineEqual(expected_dot, result_dot)
 
     def test_writter_write_dot_class_with_constructor_data_members_methods(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data_methods.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_data_methods.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -185,14 +191,14 @@ class TestPyUmlAPI(unittest.TestCase):
         writer = DotWriter()
         result_dot = writer.write(class_parser.classes_list)
 
-        dot_path = os.path.join(TESTS_DIR2, "uml2")
+        dot_path = os.path.join(self.test_dot_dir, "uml2")
         with open(dot_path, 'r') as f:
             expected_dot = f.read()
 
         self.assertMultiLineEqual(expected_dot, result_dot)
 
     def test_writter_write_dot_class_classes_inheritance(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_classes_inheritance.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_classes_inheritance.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
@@ -202,42 +208,42 @@ class TestPyUmlAPI(unittest.TestCase):
         writer = DotWriter()
         result_dot = writer.write(class_parser.classes_list)
 
-        dot_path = os.path.join(TESTS_DIR2, "uml5")
+        dot_path = os.path.join(self.test_dot_dir, "uml5")
         with open(dot_path, 'r') as f:
             expected_dot = f.read()
 
         self.assertMultiLineEqual(expected_dot, result_dot)
 
     def test_pyuml_source_code_syntax_error(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_error.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_error.py")
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         with self.assertRaises(SyntaxError):
             tree = ast3.parse(code_string_list[0])
 
     def test_serializer_serialize_save_classname_as_key(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data_methods.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_data_methods.py")
         target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(TESTS_DIR3, target_file)
+        serializer = Serializer(self.test_db_dir, target_file)
         serializer.clear()
         serializer.serialize(class_parser.classes_list[0])
         self.assertEqual(serializer.get_keys()[0], "MyClass")
 
     def test_serializer_serialize_save_multiple_class_data(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_classes_inheritance.py")
-        target_dir = os.path.join(TESTS_DIR3, "ast_test.db")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_classes_inheritance.py")
+        target_dir = os.path.join(self.test_db_dir, "ast_test.db")
         target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(TESTS_DIR3, target_file)
+        serializer = Serializer(self.test_db_dir, target_file)
         serializer.clear()
         for cls in class_parser.classes_list:
             serializer.serialize(cls)
@@ -246,26 +252,26 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(expected_class_count, len(serializer.get_keys()))
 
     def test_serializer_deserialize_file_do_not_exist(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_data.py")
         target_file = "fake_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(TESTS_DIR3, target_file)
+        serializer = Serializer(self.test_db_dir, target_file)
         with self.assertRaises(KeyError):
             serializer.deserilize('Test')
 
     def test_serializer_deserialize_key_do_not_exist(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_data.py")
         target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(TESTS_DIR3, target_file)
+        serializer = Serializer(self.test_db_dir, target_file)
         serializer.clear()
         for cls in class_parser.classes_list:
             serializer.serialize(cls)
@@ -273,14 +279,14 @@ class TestPyUmlAPI(unittest.TestCase):
             serializer.deserilize('Test')
 
     def test_serializer_deserialize_member_count(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_data.py")
         target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(TESTS_DIR3, target_file)
+        serializer = Serializer(self.test_db_dir, target_file)
         serializer.clear()
         for cls in class_parser.classes_list:
             serializer.serialize(cls)
@@ -289,14 +295,14 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(expected_m_count, cls_data['Members'])
 
     def test_serializer_deserialize_method_count(self):
-        local_dir = os.path.join(TESTS_DIR, "py_src_code_class_with_data_methods.py")
+        local_dir = os.path.join(self.test_py_dir, "py_src_code_class_with_data_methods.py")
         target_file = "ast_test.db"
         loader = Loader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
         class_parser = ClassParser()
         class_parser.visit(tree)
-        serializer = Serializer(TESTS_DIR3, target_file)
+        serializer = Serializer(self.test_db_dir, target_file)
         serializer.clear()
         for cls in class_parser.classes_list:
             serializer.serialize(cls)
@@ -305,8 +311,8 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(expected_m_count, cls_data['Methods'])
 
     def test_parser_type_comments_type_annotation_result_same(self):
-        py_annotation_path = os.path.join(TESTS_DIR, "py_type_annotations.py")
-        py_comments_path = os.path.join(TESTS_DIR, "py_type_comments.py")
+        py_annotation_path = os.path.join(self.test_py_dir, "py_type_annotations.py")
+        py_comments_path = os.path.join(self.test_py_dir, "py_type_comments.py")
         loader = Loader()
         py_annotation_code = loader.load_from_file_or_directory(py_annotation_path)
         py_comments_code = loader.load_from_file_or_directory(py_comments_path)
@@ -325,12 +331,5 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(py_annotation_dot, py_comments_dot)
 
 
-
-
-
 if __name__ == '__main__':
-    test_dir = os.path.dirname(sys.argv[0])
-    TESTS_DIR = os.path.join(test_dir, TESTS_DIR)
-    TESTS_DIR2 = os.path.join(test_dir, TESTS_DIR2)
-    TESTS_DIR3 = os.path.join(test_dir, TESTS_DIR3)
     unittest.main()

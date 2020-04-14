@@ -73,7 +73,7 @@ class PyUML(BaseCmd):
         """
         Generate UML diagram from Python source code
         """
-        parser = ArgumentParser(prog='2uml')
+        parser = ArgumentParser(prog='2uml', description='Generate UML diagram from Python source code')
         parser.add_argument('input', help='input file/folder')
         parser.add_argument('output', help='output folder')
         try:
@@ -97,7 +97,7 @@ class PyUML(BaseCmd):
         """
         Deserialize AST data from serialization data
         """
-        parser = ArgumentParser(prog='load')
+        parser = ArgumentParser(prog='load', description="Deserialize AST data from serialization data")
         parser.add_argument('input', help='input class name')
 
         try:
