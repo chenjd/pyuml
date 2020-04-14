@@ -7,11 +7,16 @@ from core.parser import ClassRecorder
 
 class Serializer:
     """
-    >>> obj = Serializer('artifacts', 1)
+    >>> import os
+    >>> import pathlib
+    >>> test_dir = pathlib.Path(__file__).parent.absolute()
+    >>> folder = 'artifacts'
+    >>> target_path = os.path.join(test_dir, folder)
+    >>> obj = Serializer(target_path, 1)
     Traceback (most recent call last):
     AssertionError
 
-    >>> obj = Serializer('artifacts', 'path')
+    >>> obj = Serializer(target_path, 'path')
     >>> isinstance(obj, Serializer)
     True
     """
@@ -27,13 +32,17 @@ class Serializer:
     def serialize(self, obj):
         """
         save the count of methods of a class and the count of date member of a class
-
-        >>> obj = Serializer('artifacts', 'path')
+        >>> import os
+        >>> import pathlib
+        >>> test_dir = pathlib.Path(__file__).parent.absolute()
+        >>> folder = 'artifacts'
+        >>> target_path = os.path.join(test_dir, folder)
+        >>> obj = Serializer(target_path, 'path')
         >>> obj.serialize(1)
         Traceback (most recent call last):
         AssertionError
 
-        >>> obj = Serializer('artifacts', 'path')
+        >>> obj = Serializer(target_path, 'path')
         >>> target = ClassRecorder('test_name', list())
         >>> obj.serialize(target)
         test_name
@@ -46,7 +55,12 @@ class Serializer:
 
     def deserilize(self, name):
         """
-        >>> obj = Serializer('artifacts', 'path')
+        >>> import os
+        >>> import pathlib
+        >>> test_dir = pathlib.Path(__file__).parent.absolute()
+        >>> folder = 'artifacts'
+        >>> target_path = os.path.join(test_dir, folder)
+        >>> obj = Serializer(target_path, 'path')
         >>> obj.deserilize(1)
         Traceback (most recent call last):
         AssertionError
