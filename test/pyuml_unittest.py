@@ -30,6 +30,13 @@ class TestPyUmlAPI(unittest.TestCase):
         expected_code = """class MyClass:\n    i = 12345\n"""
         self.assertMultiLineEqual(expected_code, loaded_code[0])
 
+    def test_loader_load_from_directory_success(self):
+        local_dir = self.test_py_dir
+        expected_result = 9
+        loader = Loader()
+        loaded_code_list = loader.load_from_file_or_directory(local_dir)
+        self.assertEqual(len(loaded_code_list), expected_result)
+
     def test_loader_load_from_file_not_exist_throw_exception(self):
         local_dir = os.path.join(self.test_py_dir, "py_src_code_hello_.py")
         loader = Loader()

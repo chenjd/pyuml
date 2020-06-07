@@ -18,7 +18,7 @@ class Loader:
 
         if os.path.isfile(path):
             return self._load_from_file(path)
-        elif os.path.isdir(path):
+        else:
             return self._load_from_directory(path)
 
     def _load_from_file(self, path):
@@ -34,18 +34,14 @@ class Loader:
         if not path.endswith('.py'):
             raise TypeError
 
-        try:
-            f = open(path, "r")
-            string = f.read()
-            f.close()
-            assert isinstance(string, str)
+        f = open(path, "r")
+        string = f.read()
+        f.close()
+        assert isinstance(string, str)
 
-            ret_string = list()
-            ret_string.append(string)
-            return ret_string
-
-        except IOError:
-            print("Could not load file:{}".format(path))
+        ret_string = list()
+        ret_string.append(string)
+        return ret_string
 
     def _load_from_directory(self, path):
         """
@@ -54,19 +50,16 @@ class Loader:
         Could not find:fake_path
         """
         assert path
-        try:
-            py_files = [os.path.join(path, fname) for fname in os.listdir(path) if fname.endswith('.py')]
-            ret_string = list()
-            for fname in py_files:
-                f = open(fname, "r")
-                string = f.read()
-                f.close()
-                ret_string.append(string)
+        py_files = [os.path.join(path, fname) for fname in os.listdir(path) if fname.endswith('.py')]
+        ret_string = list()
+        for fname in py_files:
+            f = open(fname, "r")
+            string = f.read()
+            f.close()
+            ret_string.append(string)
 
-            return ret_string
+        return ret_string
 
-        except IOError:
-            print("Could not find:{}".format(path))
 
 
 
