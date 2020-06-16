@@ -17,33 +17,17 @@ class ClassRecorder:
     def name(self):
         return self._name
 
-    @name.setter
-    def name(self, name):
-        self._name = name
-
     @property
     def members(self):
         return self._members
-
-    @members.setter
-    def members(self, members):
-        self._members = members
 
     @property
     def methods(self):
         return self._methods
 
-    @methods.setter
-    def methods(self, methods):
-        self._methods = methods
-
     @property
     def parents(self):
         return self._base_classes
-
-    @parents.setter
-    def parents(self, parents):
-        self._base_classes = parents
 
 
 class ClassParser(ast3.NodeVisitor):
@@ -89,18 +73,17 @@ class ClassParser(ast3.NodeVisitor):
             if isinstance(child, ast3.FunctionDef):
 
                 # argument type
-                if isinstance(child.args, ast3.arguments):
-                    arguments_info_list = list()
-                    for arg in child.args.args:
-                        if arg.arg == 'self':
-                            continue
-                        argument_info = ''
-                        argument_info += arg.arg
-                        if arg.annotation is not None:
-                            argument_info += ': ' + arg.annotation.id
-                        elif arg.type_comment is not None:
-                            argument_info += ': ' + arg.type_comment
-                        arguments_info_list.append(argument_info)
+                arguments_info_list = list()
+                for arg in child.args.args:
+                    if arg.arg == 'self':
+                        continue
+                    argument_info = ''
+                    argument_info += arg.arg
+                    if arg.annotation is not None:
+                        argument_info += ': ' + arg.annotation.id
+                    elif arg.type_comment is not None:
+                        argument_info += ': ' + arg.type_comment
+                    arguments_info_list.append(argument_info)
 
                 # return type
                 return_info = ''
