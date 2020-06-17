@@ -1,4 +1,4 @@
-from mvc.events.ui_event_type import UIEventType
+from source.mvc.events.ui_event_type import UIEventType
 
 
 class UIEvent:

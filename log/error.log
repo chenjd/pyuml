@@ -1792,3 +1792,55 @@ Traceback (most recent call last):
   File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/utilities/argument_parser.py", line 8, in error
     raise SystemExit
 SystemExit
+2020-06-16 19:44:47,137 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/mvc/views/cmd_view.py", line 86, in do_2uml
+    self.notify(UIEvent(UIEventType.UML, split_args))
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/mvc/views/base_view.py", line 30, in notify
+    o.update(event)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/mvc/controllers/py_uml_controller.py", line 32, in update
+    self.__ui_callbacks[event_type](event_body)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/mvc/controllers/py_uml_controller.py", line 45, in py_uml
+    code_string_list = self.__loader.load_from_file_or_directory(input_path)
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/core/loader.py", line 17, in load_from_file_or_directory
+    raise IOError
+OSError
+2020-06-16 19:46:00,545 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/mvc/views/cmd_view.py", line 85, in do_2uml
+    split_args = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/utilities/argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit
+2020-06-17 16:29:08,761 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/mvc/views/cmd_view.py", line 85, in do_2uml
+    split_args = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/utilities/argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit
+2020-06-17 17:58:08,393 ERROR utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/mvc/views/cmd_view.py", line 85, in do_2uml
+    split_args = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/utilities/argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit

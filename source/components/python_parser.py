@@ -1,43 +1,20 @@
+from source.components.base_parser import BaseParser
 from typed_ast import ast3
 from typed_ast.ast3 import ClassDef, Module, FunctionDef
+from source.mvc.models.class_recorder import ClassRecorder
 
 
-class ClassRecorder:
-    """
-    record the class data
-    """
-
-    def __init__(self, name, parents):
-        self._name = name
-        self._members = list()
-        self._methods = list()
-        self._base_classes = parents
-
-    @property
-    def name(self):
-        return self._name
-
-    @property
-    def members(self):
-        return self._members
-
-    @property
-    def methods(self):
-        return self._methods
-
-    @property
-    def parents(self):
-        return self._base_classes
-
-
-class ClassParser(ast3.NodeVisitor):
+class PythonParser(BaseParser, ast3.NodeVisitor):
     """
     Parese the source code
     """
-
     def __init__(self):
         super().__init__()
         self.classes_list = list()
+
+    def parse(self, tree):
+        self.visit(tree)
+        return self.classes_list
 
     def visit_Module(self, node):
         """
@@ -117,7 +94,8 @@ class ClassParser(ast3.NodeVisitor):
     def clear(self):
         self.classes_list.clear()
 
-    def _parse_date_member_type_comment(self, code, class_recorder):
+    @staticmethod
+    def _parse_date_member_type_comment(code, class_recorder):
         # add type comment
         type_comment = ""
         if code.type_comment is not None:
@@ -132,7 +110,8 @@ class ClassParser(ast3.NodeVisitor):
                         else:
                             class_recorder.members.append('+' + target.attr + type_comment)
 
-    def _parse_date_member_type_annotations(self, code, class_recorder):
+    @staticmethod
+    def _parse_date_member_type_annotations(code, class_recorder):
         # add type annotations
         assert isinstance(code, ast3.AnnAssign)
         type_annotations = ""

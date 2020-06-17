@@ -1,11 +1,11 @@
 import os
 import shelve
 import sys
+from source.components.base_serializer import BaseSerializer
+from source.mvc.models.class_recorder import ClassRecorder
 
-from core.parser import ClassRecorder
 
-
-class Serializer:
+class ShelveSerializer(BaseSerializer):
     """
     >>> import os
     >>> import pathlib

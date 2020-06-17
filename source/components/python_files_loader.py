@@ -1,13 +1,14 @@
 import os
+from source.components.base_loader import BaseLoader
 
 
-class Loader:
+class PythonFilesLoader(BaseLoader):
 
     def load_from_file_or_directory(self, path):
         """ (str) -> list of str
         Return list of str from one .py file of multiple .py files in a folder.
 
-        >>> loader = Loader()
+        >>> loader = PythonFilesLoader()
         >>> loader.load_from_file_or_directory('fake_path')
         Traceback (most recent call last):
         OSError
@@ -21,9 +22,10 @@ class Loader:
         else:
             return self._load_from_directory(path)
 
-    def _load_from_file(self, path):
+    @staticmethod
+    def _load_from_file(path):
         """
-        >>> loader = Loader()
+        >>> loader = PythonFilesLoader()
         >>> loader._load_from_file('test.px')
         Traceback (most recent call last):
         TypeError
@@ -43,9 +45,10 @@ class Loader:
         ret_string.append(string)
         return ret_string
 
-    def _load_from_directory(self, path):
+    @staticmethod
+    def _load_from_directory(path):
         """
-        >>> loader = Loader()
+        >>> loader = PythonFilesLoader()
         >>> loader._load_from_directory('fake_path')
         Could not find:fake_path
         """

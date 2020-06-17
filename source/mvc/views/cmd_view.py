@@ -1,14 +1,17 @@
 import cmd
 
-from mvc.views.base_view import BaseView
-from mvc.events.ui_event import UIEvent
-from mvc.events.ui_event_type import UIEventType
-from utilities.argument_parser import ArgumentParser
+from source.mvc.views.base_view import BaseView
+from source.mvc.events.ui_event import UIEvent
+from source.mvc.events.ui_event_type import UIEventType
+from source.utilities.argument_parser import ArgumentParser
 import shlex
 
 
 # observer to decouple the view and controller
 # this is the subject
+from source.utilities.logger import Logger
+
+
 class CmdView(cmd.Cmd, BaseView):
     def __init__(self):
         cmd.Cmd.__init__(self)
@@ -41,7 +44,7 @@ class CmdView(cmd.Cmd, BaseView):
 //       ~~~~~~~Ara BCDE321 Assessment~~~~~~~~~~~~
 //                
         """
-        # self.logger = Logger.get_instance().logging
+        self.logger = Logger.get_instance().logging
         self.__view_type = 'cmd_view'
 
     def start(self):
@@ -81,10 +84,9 @@ class CmdView(cmd.Cmd, BaseView):
         try:
             split_args = parser.parse_args(shlex.split(args))
             self.notify(UIEvent(UIEventType.UML, split_args))
-        except:
+        except (AttributeError, IOError, SystemExit) as e:
             print('Exception: Check the error log')
-            # self.logger.exception("2uml")
-            pass
+            self.logger.exception("2uml")
 
     def do_load(self, args):
         """

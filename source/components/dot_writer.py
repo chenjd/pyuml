@@ -1,8 +1,9 @@
-from core.parser import ClassRecorder
 from typed_ast import ast3
+from source.mvc.models.class_recorder import ClassRecorder
+from source.components.base_writer import BaseWriter
 
 
-class DotWriter:
+class DotWriter(BaseWriter):
     """
     Generate dot string from ClassRecorder
     """
@@ -78,7 +79,8 @@ class DotWriter:
 
         return dot_string
 
-    def _write_class(self, dot_string, class_name):
+    @staticmethod
+    def _write_class(dot_string, class_name):
         """
         >>> writer = DotWriter()
         >>> dot_string =''
@@ -90,7 +92,8 @@ class DotWriter:
         dot_string += "    \"{}\" [label=\"{{{}".format(class_name, class_name)
         return dot_string
 
-    def _write_members(self, dot_string, members):
+    @staticmethod
+    def _write_members(dot_string, members):
         """
         todo
         """
@@ -105,7 +108,8 @@ class DotWriter:
 
         return dot_string
 
-    def _write_methods(self, dot_string, methods):
+    @staticmethod
+    def _write_methods(dot_string, methods):
         """
         todo
         """
@@ -121,7 +125,8 @@ class DotWriter:
 
         return dot_string
 
-    def _write_relationship(self, dot_string, class_name, relationship):
+    @staticmethod
+    def _write_relationship(dot_string, class_name, relationship):
         """
         todo
         """

@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from mvc.events.ui_event import UIEvent
+from source.mvc.events.ui_event import UIEvent
 
 
 # Subject
