@@ -2,7 +2,6 @@ from abc import ABCMeta, abstractmethod
 from source.mvc.events.ui_event import UIEvent
 
 
-# Subject
 class BaseView(metaclass=ABCMeta):
     def __init__(self):
         self.__observers: list = []

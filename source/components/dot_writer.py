@@ -36,7 +36,8 @@ class DotWriter(BaseWriter):
         >>> writer.write_edge('dot_string', int_list)
         Traceback (most recent call last):
         AssertionError
-        >>> class_recorder_list = list((ClassRecorder('test1', list()), ClassRecorder('test2', list())))
+        >>> class_recorder_list = list((ClassRecorder('test1', list()),
+         ClassRecorder('test2', list())))
         >>> writer.write_edge(1, class_recorder_list)
         Traceback (most recent call last):
         AssertionError
@@ -46,7 +47,8 @@ class DotWriter(BaseWriter):
         assert isinstance(classes, list) and isinstance(dot_string, str)
         for cls in classes:
             assert isinstance(cls, ClassRecorder)
-            dot_string = self._write_relationship(dot_string, cls.name, cls.parents)
+            dot_string = self._write_relationship(dot_string, cls.name,
+                                                  cls.parents)
         return dot_string
 
     def write_node(self, dot_string, classes):
@@ -61,12 +63,14 @@ class DotWriter(BaseWriter):
         >>> writer.write_node('dot_string', int_list)
         Traceback (most recent call last):
         AssertionError
-        >>> class_recorder_list = list((ClassRecorder('test1', list()), ClassRecorder('test2', list())))
+        >>> class_recorder_list = list((ClassRecorder('test1', list()),
+         ClassRecorder('test2', list())))
         >>> writer.write_node(1, class_recorder_list)
         Traceback (most recent call last):
         AssertionError
         >>> writer.write_node('', class_recorder_list)
-        '    "test1" [label="{test1}",shape="record"];\\n    "test2" [label="{test2}",shape="record"];\\n'
+        '    "test1" [label="{test1}",shape="record"];\\n
+            "test2" [label="{test2}",shape="record"];\\n'
         """
         assert isinstance(classes, list) and isinstance(dot_string, str)
         for cls in classes:
@@ -139,7 +143,8 @@ class DotWriter(BaseWriter):
                 parent_name = base.id
             elif isinstance(base, ast3.Attribute):
                 parent_name = base.attr
-            dot_string += "    \"{}\" -> \"{}\"[arrowhead = \"empty\", arrowtail = \"none\"]\n".format(class_name,
-                                                                                                       parent_name)
+            dot_string += \
+                "    \"{}\" -> \"{}\"[arrowhead = \"empty\", " \
+                "arrowtail = \"none\"]\n".format(class_name, parent_name)
 
         return dot_string

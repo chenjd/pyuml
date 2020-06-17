@@ -1,21 +1,19 @@
-from source.components.dot_writer import DotWriter
-from source.components.python_files_loader import PythonFilesLoader
-from source.components.python_parser import PythonParser
-from source.components.shelve_serializer import ShelveSerializer
-from source.mvc.views.cmd_view import CmdView
-from source.mvc.controllers.py_uml_controller import PyUmlController
+from source.factories.abstract_factory import AbstractFactory
+from source.factories.cmd_python_uml_factory import CmdPythonUmlFactory
+from source.mvc.controllers.base_controller import BaseController
+from source.mvc.views.base_view import BaseView
+
+
+class PyUML:
+    def __init__(self, factory: AbstractFactory):
+        self.__view: BaseView = factory.create_view()
+        self.__controller: BaseController = \
+            factory.create_controller(self.__view)
+
+    def run(self):
+        self.__controller.run()
 
 
 if __name__ == '__main__':
-    view = CmdView()
-    dot_writer = DotWriter()
-    python_parser = PythonParser()
-    loader = PythonFilesLoader()
-    serializer = ShelveSerializer('artifacts', 'ast.db')
-
-    controller = PyUmlController(view,
-                                 dot_writer,
-                                 python_parser,
-                                 loader,
-                                 serializer)
-    controller.run()
+    client = PyUML(CmdPythonUmlFactory())
+    client.run()

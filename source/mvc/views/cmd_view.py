@@ -1,14 +1,10 @@
 import cmd
+import shlex
 
 from source.mvc.views.base_view import BaseView
 from source.mvc.events.ui_event import UIEvent
 from source.mvc.events.ui_event_type import UIEventType
 from source.utilities.argument_parser import ArgumentParser
-import shlex
-
-
-# observer to decouple the view and controller
-# this is the subject
 from source.utilities.logger import Logger
 
 
@@ -37,11 +33,7 @@ class CmdView(cmd.Cmd, BaseView):
 //                    \  \ `-.   \_ __\ /__ _/   .-` /  /
 //                =====`-.____`.___ \_____/ ___.`____.-`=====
 //                                  `=---=`
-//  
-//  
-//       ~~~~~~above comments from https://github.com/ottomao/bugfreejs/blob/master/testFile_gbk.js have fun:)
 //
-//       ~~~~~~~Ara BCDE321 Assessment~~~~~~~~~~~~
 //                
         """
         self.logger = Logger.get_instance().logging
@@ -78,7 +70,9 @@ class CmdView(cmd.Cmd, BaseView):
         """
         Generate UML diagram from Python source code
         """
-        parser = ArgumentParser(prog='2uml', description='Generate UML diagram from Python source code')
+        parser = ArgumentParser(prog='2uml',
+                                description=
+                                'Generate UML diagram from Python source code')
         parser.add_argument('input', help='input file/folder')
         parser.add_argument('output', help='output folder')
         try:
@@ -92,7 +86,9 @@ class CmdView(cmd.Cmd, BaseView):
         """
         Deserialize AST data from serialization data
         """
-        parser = ArgumentParser(prog='load', description="Deserialize AST data from serialization data")
+        parser = ArgumentParser(prog='load',
+                                description=
+                                "Deserialize AST data from serialization data")
         parser.add_argument('input', help='input class name')
 
         try:

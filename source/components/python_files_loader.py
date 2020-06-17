@@ -32,7 +32,6 @@ class PythonFilesLoader(BaseLoader):
         >>> loader._load_from_file('test.py')
         Could not load file:test.py
         """
-        # path = '/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/OOPBasicClass.py'
         if not path.endswith('.py'):
             raise TypeError
 
@@ -53,7 +52,8 @@ class PythonFilesLoader(BaseLoader):
         Could not find:fake_path
         """
         assert path
-        py_files = [os.path.join(path, fname) for fname in os.listdir(path) if fname.endswith('.py')]
+        py_files = [os.path.join(path, fname) for fname in os.listdir(path)
+                    if fname.endswith('.py')]
         ret_string = list()
         for fname in py_files:
             f = open(fname, "r")

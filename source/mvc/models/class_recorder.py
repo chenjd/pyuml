@@ -2,7 +2,7 @@ from source.mvc.models.base_model import BaseModel
 
 
 class ClassRecorder(BaseModel):
-    def __init__(self, name, parents, serializer = None):
+    def __init__(self, name, parents, serializer=None):
         self._name = name
         self._members = list()
         self._methods = list()
