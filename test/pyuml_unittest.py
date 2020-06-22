@@ -1,6 +1,10 @@
+import contextlib
 import os
 import unittest
-
+import contextlib
+from io import StringIO
+from PIL import Image
+import imagehash
 from typed_ast import ast3
 import pathlib
 
@@ -8,6 +12,8 @@ from source.components.python_files_loader import PythonFilesLoader
 from source.components.python_parser import PythonParser
 from source.components.shelve_serializer import ShelveSerializer
 from source.components.dot_writer import DotWriter
+from source.config.config import Config
+from source.factories.cmd_python_uml_factory import CmdPythonUmlFactory
 
 
 class TestPyUmlAPI(unittest.TestCase):
@@ -16,10 +22,14 @@ class TestPyUmlAPI(unittest.TestCase):
         test_py_dir = 'test_py_code'
         test_dot_dir = 'test_dot_code'
         test_db_dir = 'test_db'
+        test_artifacts_dir = 'test_artifacts'
+
         test_dir = pathlib.Path(__file__).parent.absolute()
         self.test_py_dir = os.path.join(test_dir, test_py_dir)
         self.test_dot_dir = os.path.join(test_dir, test_dot_dir)
         self.test_db_dir = os.path.join(test_dir, test_db_dir)
+        self.test_artifacts_dir = os.path.join(test_dir, test_artifacts_dir)
+
 
     def test_loader_load_from_file_success(self):
         local_dir = os.path.join(self.test_py_dir, "py_src_code_hello_world.py")
@@ -370,6 +380,76 @@ class TestPyUmlAPI(unittest.TestCase):
         class_parser.visit(py_comments_tree)
         py_comments_dot = writer.write(class_parser.classes_list)
         self.assertEqual(py_annotation_dot, py_comments_dot)
+
+    def test_view_do_version(self):
+        pyuml = self.create_view_and_controller()
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            pyuml.do_version(None)
+        output = temp_stdout.getvalue().strip()
+        config = Config()
+        self.assertEqual(output, "cmd_view: "+"\nAra pyuml v" + config.version)
+
+    def test_view_do_config(self):
+        pyuml = self.create_view_and_controller()
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            pyuml.do_config(None)
+        output = temp_stdout.getvalue().strip()
+        config = Config()
+        self.assertEqual(output, "cmd_view: " + "\nAuthor: " +
+                         config.author + "\nVersion: "
+                         + config.version + "\nUrl: " + config.url)
+
+    def test_view_do_exit(self):
+        pyuml = self.create_view_and_controller()
+        with self.assertRaises(SystemExit):
+            pyuml.do_exit(None)
+
+    def test_view_do_uml_generate_uml(self):
+        pyuml = self.create_view_and_controller()
+        input_dir = os.path.join(self.test_py_dir,
+                                 "py_src_code_only_class_def.py")
+        output_dir = self.test_artifacts_dir
+        pyuml.do_2uml(input_dir + ' ' + output_dir)
+        expected_img_path = os.path.join(self.test_dot_dir, "uml0.png")
+        expected_hash = imagehash.average_hash(Image.open(expected_img_path))
+        result_img_path = os.path.join(self.test_artifacts_dir, "uml0.png")
+        result_hash = imagehash.average_hash(Image.open(result_img_path))
+
+        self.assertEqual(expected_hash, result_hash)
+
+    def test_view_do_uml_wrong_arguments(self):
+        pyuml = self.create_view_and_controller()
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            pyuml.do_2uml('e e')
+        output = temp_stdout.getvalue().strip()
+        self.assertEqual(output, "e\nException: Check the error log")
+
+    def test_view_do_load_load_data(self):
+        pyuml = self.create_view_and_controller()
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            pyuml.do_load('MyClass')
+        output = temp_stdout.getvalue().strip()
+        self.assertEqual(output, "{'Members': 0, 'Methods': 0}")
+
+    def test_view_do_load_without_key(self):
+        pyuml = self.create_view_and_controller()
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            pyuml.do_load('missing')
+        output = temp_stdout.getvalue().strip()
+        print(output)
+        self.assertEqual(output, "Exception: Check the error log")
+
+    @staticmethod
+    def create_view_and_controller():
+        factory = CmdPythonUmlFactory()
+        view = factory.create_view()
+        factory.create_controller(view)
+        return view
 
 
 if __name__ == '__main__':

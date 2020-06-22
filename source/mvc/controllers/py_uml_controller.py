@@ -21,22 +21,22 @@ class PyUmlController(BaseController):
                  serializer: BaseSerializer):
         self.__view = view
         self.__view.attach(self)
-        self.__dot_writer = writer
-        self.__class_parser = parser
+        self.__writer = writer
+        self.__parser = parser
         self.__serializer = serializer
         self.__loader = loader
 
         self.__ui_callbacks: dict = dict()
         self.register_ui_event()
 
-    def run(self):
+    def run(self):  # pragma: no cover
         self.__view.start()
 
     def update(self, event: UIEvent):
         event_type = event.get_type()
         event_body = event.get_body()
-        if event_type in self.__ui_callbacks:
-            self.__ui_callbacks[event_type](event_body)
+        assert event_type in self.__ui_callbacks
+        self.__ui_callbacks[event_type](event_body)
 
     def register_ui_event(self):
         self.__ui_callbacks[UIEventType.UML] = self.py_uml
@@ -48,7 +48,6 @@ class PyUmlController(BaseController):
     def py_uml(self, event_body):
         input_path = event_body.input
         output_path = event_body.output
-        print(input_path)
         code_string_list = \
             self.__loader.load_from_file_or_directory(input_path)
 
@@ -57,12 +56,13 @@ class PyUmlController(BaseController):
             self.__render_with_graphviz(output_path, index, dot_string)
 
     def py_load(self, event_body):
-        pass
+        result = self.__serializer.deserilize(event_body.input)
+        print(result)
 
     def py_config(self, event_body):
         config = Config()
-        content: str = "\nAuthor: " + config.author +\
-                       "\nVersion: " + config.version +\
+        content: str = "\nAuthor: " + config.author + \
+                       "\nVersion: " + config.version + \
                        "\nUrl: " + config.url
         self.__view.view_print(content)
 
@@ -80,7 +80,7 @@ class PyUmlController(BaseController):
         """
         class_parser = self.__parse_to_class_recoard(code_string)
         self.__persistent_to_file(class_parser.classes_list)
-        dot_string = self.__dot_writer.write(class_parser.classes_list)
+        dot_string = self.__writer.write(class_parser.classes_list)
         return dot_string
 
     def __persistent_to_file(self, obj_list):
@@ -90,8 +90,8 @@ class PyUmlController(BaseController):
 
     def __parse_to_class_recoard(self, code_string):
         tree = ast3.parse(code_string)
-        self.__class_parser.visit(tree)
-        return self.__class_parser
+        self.__parser.visit(tree)
+        return self.__parser
 
     @staticmethod
     def __render_with_graphviz(output_path, index, dot):

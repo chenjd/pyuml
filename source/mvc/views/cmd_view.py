@@ -1,6 +1,5 @@
 import cmd
 import shlex
-
 from source.mvc.views.base_view import BaseView
 from source.mvc.events.ui_event import UIEvent
 from source.mvc.events.ui_event_type import UIEventType
@@ -13,33 +12,11 @@ class CmdView(cmd.Cmd, BaseView):
         cmd.Cmd.__init__(self)
         BaseView.__init__(self)
         self.prompt = "pyuml>>>"
-        self.intro = """
-//  
-//                                  _oo8oo_
-//                                 o8888888o
-//                                 88" . "88
-//                                 (| -_- |)
-//                                 0\  =  /0
-//                               ___/'==='\___
-//                             .' \\|     |// '.
-//                            / \\|||  :  |||// \\
-//                           / _||||| -:- |||||_ \\
-//                          |   | \\\  -  /// |   |
-//                          | \_|  ''\---/''  |_/ |
-//                          \  .-\__  '-'  __/-.  /
-//                        ___'. .'  /--.--\  '. .'___
-//                     ."" '<  '.___\_<|>_/___.'  >' "".
-//                    | | :  `- \`.:`\ _ /`:.`/ -`  : | |
-//                    \  \ `-.   \_ __\ /__ _/   .-` /  /
-//                =====`-.____`.___ \_____/ ___.`____.-`=====
-//                                  `=---=`
-//
-//                
-        """
+        self.intro = "This is PyUML..."
         self.logger = Logger.get_instance().logging
         self.__view_type = 'cmd_view'
 
-    def start(self):
+    def start(self):  # pragma: no cover
         self.cmdloop()
 
     def stop(self):
@@ -95,26 +72,19 @@ class CmdView(cmd.Cmd, BaseView):
             split_args = parser.parse_args(shlex.split(args))
             self.notify(UIEvent(UIEventType.LOAD, split_args))
 
-        except:
+        except (AttributeError, IOError, SystemExit, KeyError) as e:
             print('Exception: Check the error log')
             self.logger.exception("load")
             pass
 
-    def do_help(self, args):
+    def do_help(self, args):  # pragma: no cover
         """
         Help Information
         """
         cmd.Cmd.do_help(self, args)
 
-    def emptyline(self):
-        """
-        todo
-        """
-        pass
-
-    def default(self, line):
+    def default(self, line):  # pragma: no cover
         """
         todo
         """
         print("Command not found\n")
-

@@ -1,3 +1,6 @@
+import os
+import pathlib
+
 from source.components.dot_writer import DotWriter
 from source.components.python_files_loader import PythonFilesLoader
 from source.components.python_parser import PythonParser
@@ -15,7 +18,9 @@ class CmdPythonUmlFactory(AbstractFactory):
         dot_writer = DotWriter()
         python_parser = PythonParser()
         loader = PythonFilesLoader()
-        serializer = ShelveSerializer('artifacts', 'ast.db')
+        root_dir = pathlib.Path(__file__).parent.absolute()
+        artifact_dir = os.path.join(root_dir, 'artifacts')
+        serializer = ShelveSerializer(artifact_dir, 'ast.db')
 
         return PyUmlController(view,
                                dot_writer,

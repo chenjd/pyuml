@@ -108,7 +108,7 @@ class DotWriter(BaseWriter):
 
         dot_string += "|"
         for member in members:
-            dot_string += "{}\l".format(member)
+            dot_string += "{}\\l".format(member)
 
         return dot_string
 
@@ -124,7 +124,7 @@ class DotWriter(BaseWriter):
 
         dot_string += "|"
         for method in methods:
-            dot_string += "{}\l".format(method)
+            dot_string += "{}\\l".format(method)
         dot_string += "}\""
 
         return dot_string
@@ -138,11 +138,7 @@ class DotWriter(BaseWriter):
         if len(relationship) == 0:
             return dot_string
         for base in relationship:
-            parent_name = ''
-            if isinstance(base, ast3.Name):
-                parent_name = base.id
-            elif isinstance(base, ast3.Attribute):
-                parent_name = base.attr
+            parent_name = base.id
             dot_string += \
                 "    \"{}\" -> \"{}\"[arrowhead = \"empty\", " \
                 "arrowtail = \"none\"]\n".format(class_name, parent_name)
