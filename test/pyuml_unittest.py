@@ -1,4 +1,3 @@
-import contextlib
 import os
 import unittest
 import contextlib
@@ -14,6 +13,9 @@ from source.components.shelve_serializer import ShelveSerializer
 from source.components.dot_writer import DotWriter
 from source.config.config import Config
 from source.factories.cmd_python_uml_factory import CmdPythonUmlFactory
+from source.mvc.models.class_recorder import ClassRecorder
+from typing import TypeVar, Generic, List
+
 
 
 class TestPyUmlAPI(unittest.TestCase):
@@ -76,7 +78,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         expected_class_name = "MyClass"
@@ -94,7 +96,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         expected_class_name = "MyClass"
@@ -113,7 +115,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         expected_class_name = "MyClass"
@@ -132,7 +134,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         expected_class_name = "MyClass"
@@ -153,7 +155,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         for cla in class_parser.classes_list:
@@ -170,7 +172,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         writer = DotWriter()
@@ -188,7 +190,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         writer = DotWriter()
@@ -206,7 +208,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         writer = DotWriter()
@@ -224,7 +226,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         writer = DotWriter()
@@ -242,7 +244,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
 
         writer = DotWriter()
@@ -268,7 +270,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
         serializer = ShelveSerializer(self.test_db_dir, target_file)
         serializer.clear()
@@ -283,7 +285,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
         serializer = ShelveSerializer(self.test_db_dir, target_file)
         serializer.clear()
@@ -300,7 +302,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
         serializer = ShelveSerializer(self.test_db_dir, target_file)
         with self.assertRaises(KeyError):
@@ -313,7 +315,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
         serializer = ShelveSerializer(self.test_db_dir, target_file)
         serializer.clear()
@@ -329,7 +331,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
         serializer = ShelveSerializer(self.test_db_dir, target_file)
         serializer.clear()
@@ -347,7 +349,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         tree = ast3.parse(code_string_list[0])
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(tree)
         serializer = ShelveSerializer(self.test_db_dir, target_file)
         serializer.clear()
@@ -371,7 +373,7 @@ class TestPyUmlAPI(unittest.TestCase):
         py_annotation_tree = ast3.parse(py_annotation_code[0])
         py_comments_tree = ast3.parse(py_comments_code[0])
 
-        class_parser = PythonParser()
+        class_parser = PythonParser(ClassRecorder)
         class_parser.visit(py_annotation_tree)
         writer = DotWriter()
         py_annotation_dot = writer.write(class_parser.classes_list)

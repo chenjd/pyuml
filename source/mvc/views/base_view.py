@@ -1,10 +1,13 @@
 from abc import ABCMeta, abstractmethod
+
+from source.mvc.controllers.base_controller import BaseController
 from source.mvc.events.ui_event import UIEvent
+from typing import List
 
 
 class BaseView(metaclass=ABCMeta):
     def __init__(self):
-        self.__observers: list = []
+        self.__observers: List[BaseController] = []
 
     @abstractmethod
     def start(self):

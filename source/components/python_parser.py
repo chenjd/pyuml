@@ -2,15 +2,20 @@ from source.components.base_parser import BaseParser
 from typed_ast import ast3
 from typed_ast.ast3 import ClassDef, Module, FunctionDef
 from source.mvc.models.class_recorder import ClassRecorder
+from typing import TypeVar, Generic, List
 
 
-class PythonParser(BaseParser, ast3.NodeVisitor):
+T = TypeVar('T')
+
+
+class PythonParser(BaseParser, ast3.NodeVisitor, Generic[T]):
     """
     Parese the source code
     """
-    def __init__(self):
+
+    def __init__(self, element_type: T):
         super().__init__()
-        self.classes_list = list()
+        self.classes_list: List[element_type] = []
 
     def parse(self, tree):
         self.visit(tree)
@@ -70,18 +75,27 @@ class PythonParser(BaseParser, ast3.NodeVisitor):
                     return_info = ": " + child.type_comment
 
                 if child.name.startswith('__'):
-                    class_recorder.methods.append('-{}({}){}'.format(child.name,
-                                                                     ', '.join(arguments_info_list), return_info))
+                    class_recorder. \
+                        methods.append('-{}({}){}'.
+                                       format(child.name,
+                                              ', '.join(arguments_info_list),
+                                              return_info))
                 else:
-                    class_recorder.methods.append('+{}({}){}'.format(child.name,
-                                                                     ', '.join(arguments_info_list), return_info))
+                    class_recorder.methods.append(
+                        '+{}({}){}'.format(child.name,
+                                           ', '.join(arguments_info_list),
+                                           return_info))
                 # constructor
                 if child.name == '__init__':
                     for code in child.body:
                         if isinstance(code, ast3.Assign):
-                            self._parse_date_member_type_comment(code, class_recorder)
+                            self._parse_date_member_type_comment(
+                                code,
+                                class_recorder)
                         elif isinstance(code, ast3.AnnAssign):
-                            self._parse_date_member_type_annotations(code, class_recorder)
+                            self._parse_date_member_type_annotations(
+                                code,
+                                class_recorder)
 
         assert isinstance(class_recorder, ClassRecorder)
         self.classes_list.append(class_recorder)
@@ -98,31 +112,35 @@ class PythonParser(BaseParser, ast3.NodeVisitor):
     def _parse_date_member_type_comment(code, class_recorder):
         # add type comment
         type_comment = ""
-        if code.type_comment is not None:
-            type_comment = " : " + code.type_comment
+        if code.type_comment is None:
+            return
+
+        type_comment = " : " + code.type_comment
         for target in code.targets:
-            if isinstance(target, ast3.Attribute):
-                if isinstance(target.value, ast3.Name):
-                    if target.value.id == 'self':
-                        # private member
-                        if target.attr.startswith('__'):
-                            class_recorder.members.append('-' + target.attr + type_comment)
-                        else:
-                            class_recorder.members.append('+' + target.attr + type_comment)
+            if not isinstance(target, ast3.Attribute) or\
+                    not isinstance(target.value, ast3.Name) or\
+                    target.value.id != 'self':
+                continue
+
+            prefix = '-' if target.attr.startswith('__') else "+"
+            class_recorder.members.append("{}{}{}".format(
+                prefix, target.attr, type_comment))
 
     @staticmethod
     def _parse_date_member_type_annotations(code, class_recorder):
         # add type annotations
         assert isinstance(code, ast3.AnnAssign)
-        type_annotations = ""
-        if code.annotation is not None:
-            type_annotations = " : " + code.annotation.id
-            target = code.target
-            if isinstance(target, ast3.Attribute):
-                if isinstance(target.value, ast3.Name):
-                    if target.value.id == 'self':
-                        # private member
-                        if target.attr.startswith('__'):
-                            class_recorder.members.append('-' + target.attr + type_annotations)
-                        else:
-                            class_recorder.members.append('+' + target.attr + type_annotations)
+        if code.annotation is None:
+            return
+
+        target = code.target
+        if not isinstance(target, ast3.Attribute) or \
+                not isinstance(target.value, ast3.Name) or \
+                target.value.id != 'self':
+            return
+
+        type_annotations = " : " + code.annotation.id
+
+        prefix = '-' if target.attr.startswith('__') else "+"
+        class_recorder.members.append("{}{}{}".format(
+            prefix, target.attr, type_annotations))

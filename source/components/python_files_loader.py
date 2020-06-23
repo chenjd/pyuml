@@ -25,12 +25,6 @@ class PythonFilesLoader(BaseLoader):
     @staticmethod
     def _load_from_file(path):
         """
-        >>> loader = PythonFilesLoader()
-        >>> loader._load_from_file('test.px')
-        Traceback (most recent call last):
-        TypeError
-        >>> loader._load_from_file('test.py')
-        Could not load file:test.py
         """
         if not path.endswith('.py'):
             raise TypeError
@@ -47,9 +41,6 @@ class PythonFilesLoader(BaseLoader):
     @staticmethod
     def _load_from_directory(path):
         """
-        >>> loader = PythonFilesLoader()
-        >>> loader._load_from_directory('fake_path')
-        Could not find:fake_path
         """
         assert path
         py_files = [os.path.join(path, fname) for fname in os.listdir(path)

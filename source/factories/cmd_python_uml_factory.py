@@ -8,6 +8,7 @@ from source.components.shelve_serializer import ShelveSerializer
 from source.factories.abstract_factory import AbstractFactory
 from source.mvc.controllers.py_uml_controller import PyUmlController
 from source.mvc.views.cmd_view import CmdView
+from source.mvc.models.class_recorder import ClassRecorder
 
 
 class CmdPythonUmlFactory(AbstractFactory):
@@ -16,7 +17,7 @@ class CmdPythonUmlFactory(AbstractFactory):
 
     def create_controller(self, view):
         dot_writer = DotWriter()
-        python_parser = PythonParser()
+        python_parser = PythonParser(ClassRecorder)
         loader = PythonFilesLoader()
         root_dir = pathlib.Path(__file__).parent.absolute()
         artifact_dir = os.path.join(root_dir, 'artifacts')

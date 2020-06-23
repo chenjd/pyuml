@@ -19,12 +19,12 @@ class PyUmlController(BaseController):
                  parser: BaseParser,
                  loader: BaseLoader,
                  serializer: BaseSerializer):
-        self.__view = view
+        self.__view: BaseView = view
         self.__view.attach(self)
-        self.__writer = writer
-        self.__parser = parser
-        self.__serializer = serializer
-        self.__loader = loader
+        self.__writer: BaseWriter = writer
+        self.__parser: BaseParser = parser
+        self.__serializer: BaseSerializer = serializer
+        self.__loader: BaseLoader = loader
 
         self.__ui_callbacks: dict = dict()
         self.register_ui_event()
@@ -78,9 +78,9 @@ class PyUmlController(BaseController):
         """
         todo
         """
-        class_parser = self.__parse_to_class_recoard(code_string)
-        self.__persistent_to_file(class_parser.classes_list)
-        dot_string = self.__writer.write(class_parser.classes_list)
+        self.__parse_to_class_recoard(code_string)
+        self.__persistent_to_file(self.__parser.classes_list)
+        dot_string = self.__writer.write(self.__parser.classes_list)
         return dot_string
 
     def __persistent_to_file(self, obj_list):
@@ -90,8 +90,7 @@ class PyUmlController(BaseController):
 
     def __parse_to_class_recoard(self, code_string):
         tree = ast3.parse(code_string)
-        self.__parser.visit(tree)
-        return self.__parser
+        self.__parser.parse(tree)
 
     @staticmethod
     def __render_with_graphviz(output_path, index, dot):

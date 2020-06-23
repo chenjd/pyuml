@@ -86,11 +86,6 @@ class DotWriter(BaseWriter):
     @staticmethod
     def _write_class(dot_string, class_name):
         """
-        >>> writer = DotWriter()
-        >>> dot_string =''
-        >>> writer._write_class(dot_string, 1)
-        Traceback (most recent call last):
-        AssertionError
         """
         assert isinstance(class_name, str)
         dot_string += "    \"{}\" [label=\"{{{}".format(class_name, class_name)
@@ -108,7 +103,7 @@ class DotWriter(BaseWriter):
 
         dot_string += "|"
         for member in members:
-            dot_string += "{}\\l".format(member)
+            dot_string += r"{}\l".format(member)
 
         return dot_string
 
@@ -124,7 +119,7 @@ class DotWriter(BaseWriter):
 
         dot_string += "|"
         for method in methods:
-            dot_string += "{}\\l".format(method)
+            dot_string += r"{}\l".format(method)
         dot_string += "}\""
 
         return dot_string
