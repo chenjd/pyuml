@@ -34,5 +34,3 @@ class Car3(Car, MovementObject):
 
     def greeting(self, user_id: int, content: str) -> str:
         return 'Hello ' + self.get_user_name(user_id) + content
-
-

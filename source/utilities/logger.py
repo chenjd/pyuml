@@ -32,7 +32,8 @@ class Logger:
         root_dir = os.path.dirname(sys.argv[0])
         if is_doctest:
             import pathlib
-            root_dir = os.path.dirname(pathlib.Path(__file__).parent.absolute())
+            root_dir = os.path.dirname(pathlib.Path(__file__).
+                                       parent.absolute())
 
         self._path = os.path.join(root_dir, 'log')
         self._logging = self._set_logging()
@@ -47,6 +48,8 @@ class Logger:
         if not os.path.exists(self._path):
             os.mkdir(self._path)
 
-        logging.basicConfig(filename=os.path.join(self._path, 'error.log'), level=logging.DEBUG,
-                            format='%(asctime)s %(levelname)s %(name)s %(message)s')
+        logging.basicConfig(filename=os.path.join(self._path, 'error.log'),
+                            level=logging.DEBUG,
+                            format='%(asctime)s'
+                                   ' %(levelname)s %(name)s %(message)s')
         return logging.getLogger(__name__)

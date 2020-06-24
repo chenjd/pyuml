@@ -9,4 +9,3 @@ class AbstractFactory(metaclass=ABCMeta):
     @abstractmethod
     def create_controller(self, view):
         pass
-

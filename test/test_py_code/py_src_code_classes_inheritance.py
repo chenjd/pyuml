@@ -14,5 +14,3 @@ class MyClassOne(BaseClass):
 class MyClassTwo(BaseClass, MyClassOne):
     def __init__(self):
         pass
-
-

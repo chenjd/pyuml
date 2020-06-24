@@ -53,11 +53,3 @@ class PythonFilesLoader(BaseLoader):
             ret_string.append(string)
 
         return ret_string
-
-
-
-
-
-
-
-

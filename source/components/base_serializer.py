@@ -17,5 +17,3 @@ class BaseSerializer(metaclass=ABCMeta):
     @abstractmethod
     def clear(self):
         pass
-
-

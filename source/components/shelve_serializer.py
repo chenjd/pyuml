@@ -7,18 +7,6 @@ from source.mvc.models.class_recorder import ClassRecorder
 
 class ShelveSerializer(BaseSerializer):
     """
-    >>> import os
-    >>> import pathlib
-    >>> test_dir = os.path.dirname(pathlib.Path(__file__).parent.absolute())
-    >>> folder = 'artifacts'
-    >>> target_path = os.path.join(test_dir, folder)
-    >>> obj = Serializer(target_path, 1)
-    Traceback (most recent call last):
-    AssertionError
-
-    >>> obj = Serializer(target_path, 'path')
-    >>> isinstance(obj, Serializer)
-    True
     """
     def __init__(self, dir_path, file_name):
         assert isinstance(dir_path, str)
@@ -31,21 +19,8 @@ class ShelveSerializer(BaseSerializer):
 
     def serialize(self, obj):
         """
-        save the count of methods of a class and the count of date member of a class
-        >>> import os
-        >>> import pathlib
-        >>> test_dir = os.path.dirname(pathlib.Path(__file__).parent.absolute())
-        >>> folder = 'artifacts'
-        >>> target_path = os.path.join(test_dir, folder)
-        >>> obj = Serializer(target_path, 'path.db')
-        >>> obj.serialize(1)
-        Traceback (most recent call last):
-        AssertionError
-
-        >>> obj = Serializer(target_path, 'path.db')
-        >>> target = ClassRecorder('test_name', list())
-        >>> obj.serialize(target)
-        test_name
+        save the count of methods of a class
+        and the count of date member of a class
         """
         assert isinstance(obj, ClassRecorder)
         with shelve.open(self._file_path) as db:
@@ -55,15 +30,6 @@ class ShelveSerializer(BaseSerializer):
 
     def deserilize(self, name):
         """
-        >>> import os
-        >>> import pathlib
-        >>> test_dir = os.path.dirname(pathlib.Path(__file__).parent.absolute())
-        >>> folder = 'artifacts'
-        >>> target_path = os.path.join(test_dir, folder)
-        >>> obj = Serializer(target_path, 'path')
-        >>> obj.deserilize(1)
-        Traceback (most recent call last):
-        AssertionError
         """
         assert isinstance(name, str)
         with shelve.open(self._file_path) as db:
@@ -79,6 +45,3 @@ class ShelveSerializer(BaseSerializer):
     def clear(self):
         with shelve.open(self._file_path) as db:
             db.clear()
-
-
-

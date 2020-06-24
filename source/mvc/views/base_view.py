@@ -1,6 +1,4 @@
 from abc import ABCMeta, abstractmethod
-
-from source.mvc.controllers.base_controller import BaseController
 from source.mvc.events.ui_event import UIEvent
 from typing import List
 
@@ -30,5 +28,3 @@ class BaseView(metaclass=ABCMeta):
     def notify(self, event: UIEvent):
         for o in self.__observers:
             o.update(event)
-
-

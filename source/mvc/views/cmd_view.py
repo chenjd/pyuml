@@ -48,8 +48,8 @@ class CmdView(cmd.Cmd, BaseView):
         Generate UML diagram from Python source code
         """
         parser = ArgumentParser(prog='2uml',
-                                description=
-                                'Generate UML diagram from Python source code')
+                                description='Generate UML diagram'
+                                            ' from Python source code')
         parser.add_argument('input', help='input file/folder')
         parser.add_argument('output', help='output folder')
         try:
@@ -64,8 +64,8 @@ class CmdView(cmd.Cmd, BaseView):
         Deserialize AST data from serialization data
         """
         parser = ArgumentParser(prog='load',
-                                description=
-                                "Deserialize AST data from serialization data")
+                                description="Deserialize AST data"
+                                            " from serialization data")
         parser.add_argument('input', help='input class name')
 
         try:

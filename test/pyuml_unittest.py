@@ -14,8 +14,6 @@ from source.components.dot_writer import DotWriter
 from source.config.config import Config
 from source.factories.cmd_python_uml_factory import CmdPythonUmlFactory
 from source.mvc.models.class_recorder import ClassRecorder
-from typing import TypeVar, Generic, List
-
 
 
 class TestPyUmlAPI(unittest.TestCase):
@@ -32,9 +30,9 @@ class TestPyUmlAPI(unittest.TestCase):
         self.test_db_dir = os.path.join(test_dir, test_db_dir)
         self.test_artifacts_dir = os.path.join(test_dir, test_artifacts_dir)
 
-
     def test_loader_load_from_file_success(self):
-        local_dir = os.path.join(self.test_py_dir, "py_src_code_hello_world.py")
+        local_dir = os.path.join(self.test_py_dir,
+                                 "py_src_code_hello_world.py")
         loader = PythonFilesLoader()
         loaded_code = loader.load_from_file_or_directory(local_dir)
         expected_code = """class MyClass:\n    i = 12345\n"""
@@ -261,7 +259,7 @@ class TestPyUmlAPI(unittest.TestCase):
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
         with self.assertRaises(SyntaxError):
-            tree = ast3.parse(code_string_list[0])
+            ast3.parse(code_string_list[0])
 
     def test_serializer_serialize_save_classname_as_key(self):
         local_dir = os.path.join(self.test_py_dir,
@@ -280,7 +278,6 @@ class TestPyUmlAPI(unittest.TestCase):
     def test_serializer_serialize_save_multiple_class_data(self):
         local_dir = os.path.join(self.test_py_dir,
                                  "py_src_code_classes_inheritance.py")
-        target_dir = os.path.join(self.test_db_dir, "ast_test.db")
         target_file = "ast_test.db"
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
@@ -390,7 +387,8 @@ class TestPyUmlAPI(unittest.TestCase):
             pyuml.do_version(None)
         output = temp_stdout.getvalue().strip()
         config = Config()
-        self.assertEqual(output, "cmd_view: "+"\nAra pyuml v" + config.version)
+        self.assertEqual(output,
+                         "cmd_view: " + "\nAra pyuml v" + config.version)
 
     def test_view_do_config(self):
         pyuml = self.create_view_and_controller()
