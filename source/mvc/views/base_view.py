@@ -1,4 +1,6 @@
 from abc import ABCMeta, abstractmethod
+
+from source.mvc.controllers.base_controller import BaseController
 from source.mvc.events.ui_event import UIEvent
 from typing import List
 

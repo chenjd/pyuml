@@ -23,7 +23,6 @@ class TestPyUmlAPI(unittest.TestCase):
         test_dot_dir = 'test_dot_code'
         test_db_dir = 'test_db'
         test_artifacts_dir = 'test_artifacts'
-
         test_dir = pathlib.Path(__file__).parent.absolute()
         self.test_py_dir = os.path.join(test_dir, test_py_dir)
         self.test_dot_dir = os.path.join(test_dir, test_dot_dir)
@@ -40,7 +39,7 @@ class TestPyUmlAPI(unittest.TestCase):
 
     def test_loader_load_from_directory_success(self):
         local_dir = self.test_py_dir
-        expected_result = 9
+        expected_result = 12
         loader = PythonFilesLoader()
         loaded_code_list = loader.load_from_file_or_directory(local_dir)
         self.assertEqual(len(loaded_code_list), expected_result)
@@ -61,7 +60,7 @@ class TestPyUmlAPI(unittest.TestCase):
     def test_loader_load_from_directory_find_out_py_file(self):
         loader = PythonFilesLoader()
         ret = loader.load_from_file_or_directory(self.test_py_dir)
-        expected_files_count = 9
+        expected_files_count = 12
         self.assertEqual(expected_files_count, len(ret))
 
     def test_loader_load_from_directory_not_exist_throw_exception(self):
@@ -107,6 +106,25 @@ class TestPyUmlAPI(unittest.TestCase):
         self.assertEqual(expected_methods_count,
                          len(class_parser.classes_list[0].methods))
 
+    def test_parser_parse_class_with_constructor_data_members_type(self):
+        local_dir = os.path.join(self.test_py_dir,
+                                 "py_src_code_class_with_data_type.py")
+        loader = PythonFilesLoader()
+        code_string_list = loader.load_from_file_or_directory(local_dir)
+        tree = ast3.parse(code_string_list[0])
+        class_parser = PythonParser(ClassRecorder)
+        class_parser.visit(tree)
+
+        expected_class_name = "MyClass"
+        expected_memober_count = 4
+        expected_methods_count = 1
+        self.assertEqual(expected_class_name,
+                         class_parser.classes_list[0].name)
+        self.assertEqual(expected_memober_count,
+                         len(class_parser.classes_list[0].members))
+        self.assertEqual(expected_methods_count,
+                         len(class_parser.classes_list[0].methods))
+
     def test_parser_parse_class_with_constructor_data_members(self):
         local_dir = os.path.join(self.test_py_dir,
                                  "py_src_code_class_with_data.py")
@@ -140,10 +158,46 @@ class TestPyUmlAPI(unittest.TestCase):
         expected_methods_count = 3
         self.assertEqual(expected_class_name,
                          class_parser.classes_list[0].name)
-
         self.assertEqual(expected_memober_count,
                          len(class_parser.classes_list[0].members))
+        self.assertEqual(expected_methods_count,
+                         len(class_parser.classes_list[0].methods))
 
+    def test_parser_parse_class_with_constructor_private_data_members(self):
+        local_dir = os.path.join(self.test_py_dir,
+                                 "py_src_code_class_with_private_data.py")
+        loader = PythonFilesLoader()
+        code_string_list = loader.load_from_file_or_directory(local_dir)
+        tree = ast3.parse(code_string_list[0])
+        class_parser = PythonParser(ClassRecorder)
+        class_parser.visit(tree)
+
+        expected_class_name = "MyClass"
+        expected_memober_count = 5
+        expected_methods_count = 3
+        self.assertEqual(expected_class_name,
+                         class_parser.classes_list[0].name)
+        self.assertEqual(expected_memober_count,
+                         len(class_parser.classes_list[0].members))
+        self.assertEqual(expected_methods_count,
+                         len(class_parser.classes_list[0].methods))
+
+    def test_parser_parse_class_with_argument_methods(self):
+        local_dir = os.path.join(self.test_py_dir,
+                                 "py_src_code_class_argument_method.py")
+        loader = PythonFilesLoader()
+        code_string_list = loader.load_from_file_or_directory(local_dir)
+        tree = ast3.parse(code_string_list[0])
+        class_parser = PythonParser(ClassRecorder)
+        class_parser.visit(tree)
+
+        expected_class_name = "MyClass"
+        expected_memober_count = 5
+        expected_methods_count = 5
+        self.assertEqual(expected_class_name,
+                         class_parser.classes_list[0].name)
+        self.assertEqual(expected_memober_count,
+                         len(class_parser.classes_list[0].members))
         self.assertEqual(expected_methods_count,
                          len(class_parser.classes_list[0].methods))
 
@@ -218,7 +272,7 @@ class TestPyUmlAPI(unittest.TestCase):
 
         self.assertMultiLineEqual(expected_dot, result_dot)
 
-    def test_writer_write_dot_class_with_constructor_data_methods(self):
+    def test_writer_write_dot_class_constructor_data_members_methods(self):
         local_dir = os.path.join(self.test_py_dir,
                                  "py_src_code_class_with_data_methods.py")
         loader = PythonFilesLoader()
@@ -341,7 +395,6 @@ class TestPyUmlAPI(unittest.TestCase):
     def test_serializer_deserialize_method_count(self):
         local_dir = os.path.join(self.test_py_dir,
                                  "py_src_code_class_with_data_methods.py")
-
         target_file = "ast_test.db"
         loader = PythonFilesLoader()
         code_string_list = loader.load_from_file_or_directory(local_dir)
@@ -362,9 +415,8 @@ class TestPyUmlAPI(unittest.TestCase):
         py_comments_path = os.path.join(self.test_py_dir,
                                         "py_type_comments.py")
         loader = PythonFilesLoader()
-        py_annotation_code = \
-            loader.load_from_file_or_directory(py_annotation_path)
-
+        py_annotation_code = loader. \
+            load_from_file_or_directory(py_annotation_path)
         py_comments_code = loader.load_from_file_or_directory(py_comments_path)
 
         py_annotation_tree = ast3.parse(py_annotation_code[0])

@@ -1879,3 +1879,29 @@ SystemExit
 2020-06-23 20:28:51,769 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
 2020-06-23 20:29:05,304 DEBUG graphviz.files write 827 bytes to '/Users/chenjiadong/Documents/funnyCode/PythonRepo/uml0'
 2020-06-23 20:29:05,305 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-06-25 18:44:41,064 ERROR source.utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/source/mvc/views/cmd_view.py", line 56, in do_2uml
+    split_args = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/source/utilities/argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit
+2020-06-25 18:44:42,128 ERROR source.utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/source/mvc/views/cmd_view.py", line 56, in do_2uml
+    split_args = parser.parse_args(shlex.split(args))
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1755, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 1787, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/argparse.py", line 2022, in _parse_known_args
+    ', '.join(required_actions))
+  File "/Users/chenjiadong/Documents/funnyCode/PythonRepo/pyuml/source/utilities/argument_parser.py", line 8, in error
+    raise SystemExit
+SystemExit

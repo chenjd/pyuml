@@ -112,14 +112,11 @@ class PythonParser(BaseParser, ast3.NodeVisitor, Generic[T]):
     def _parse_date_member_type_comment(code, class_recorder):
         # add type comment
         type_comment = ""
-        if code.type_comment is None:
-            return
+        if code.type_comment is not None:
+            type_comment = " : " + code.type_comment
 
-        type_comment = " : " + code.type_comment
         for target in code.targets:
-            if not isinstance(target, ast3.Attribute) or\
-                    not isinstance(target.value, ast3.Name) or\
-                    target.value.id != 'self':
+            if not isinstance(target, ast3.Attribute):
                 continue
 
             prefix = '-' if target.attr.startswith('__') else "+"
@@ -130,13 +127,8 @@ class PythonParser(BaseParser, ast3.NodeVisitor, Generic[T]):
     def _parse_date_member_type_annotations(code, class_recorder):
         # add type annotations
         assert isinstance(code, ast3.AnnAssign)
-        if code.annotation is None:
-            return
-
         target = code.target
-        if not isinstance(target, ast3.Attribute) or \
-                not isinstance(target.value, ast3.Name) or \
-                target.value.id != 'self':
+        if not isinstance(target, ast3.Attribute):
             return
 
         type_annotations = " : " + code.annotation.id

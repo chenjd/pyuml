@@ -10,5 +10,6 @@ class MyClass:
     def _hi(self):
         pass
 
-    def bye(self):
+    @staticmethod
+    def bye():
         pass
