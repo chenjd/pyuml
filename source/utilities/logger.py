@@ -1,5 +1,6 @@
 import logging
 import os
+import pathlib
 import sys
 
 
@@ -29,11 +30,8 @@ class Logger:
 
     def __init__(self, is_doctest=False):
         assert Logger.__instance is None
-        root_dir = os.path.dirname(sys.argv[0])
-        if is_doctest:
-            import pathlib
-            root_dir = os.path.dirname(pathlib.Path(__file__).
-                                       parent.absolute())
+        root_dir = os.path.dirname(pathlib.Path(__file__).
+                                   parent.absolute())
 
         self._path = os.path.join(root_dir, 'log')
         self._logging = self._set_logging()

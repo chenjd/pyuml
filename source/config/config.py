@@ -1,5 +1,6 @@
 import configparser
 import os
+import pathlib
 import sys
 
 CONFIG_FILE_NAME = 'userConfig.ini'
@@ -8,7 +9,7 @@ CONFIG_FILE_NAME = 'userConfig.ini'
 class Config:
 
     def __init__(self):
-        root_dir = os.path.dirname(sys.argv[0])
+        root_dir = pathlib.Path(__file__).parent.absolute()
         self._path = os.path.join(root_dir, './config')
         self._author, self._version, self._url = self._get_config()
 
