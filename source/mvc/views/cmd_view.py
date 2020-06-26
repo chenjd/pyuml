@@ -53,7 +53,7 @@ class CmdView(cmd.Cmd, BaseView):
         parser.add_argument('input', help='input file/folder')
         parser.add_argument('output', help='output folder')
         try:
-            split_args = parser.parse_args(shlex.split(args))
+            split_args = parser.parse_args(shlex.split(args, posix=0))
             self.notify(UIEvent(UIEventType.UML, split_args))
         except (AttributeError, IOError, SystemExit) as e:
             print('Exception: Check the error log')
@@ -69,7 +69,7 @@ class CmdView(cmd.Cmd, BaseView):
         parser.add_argument('input', help='input class name')
 
         try:
-            split_args = parser.parse_args(shlex.split(args))
+            split_args = parser.parse_args(shlex.split(args, posix=0))
             self.notify(UIEvent(UIEventType.LOAD, split_args))
 
         except (AttributeError, IOError, SystemExit, KeyError) as e:
