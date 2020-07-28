@@ -1,0 +1,8 @@
+graphviz==0.14.1
+ImageHash==4.1.0
+numpy==1.19.1
+Pillow==7.2.0
+PyWavelets==1.1.1
+scipy==1.5.2
+six==1.15.0
+typed-ast==1.4.1
