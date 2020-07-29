@@ -1,6 +1,9 @@
 # pyuml
+A toy project that generates UML diagrams of Python code by parsing the abstract syntax tree of the target Python code.
 
-source code -> dot file -> png file
+![](https://img.shields.io/github/v/release/chenjd/pyuml?sort=semver)
+[![Build Status](http://52.230.5.15:8080/buildStatus/icon?job=pyuml)](http://52.230.5.15:8080/job/pyuml/)
+![](https://img.shields.io/jenkins/coverage/cobertura?jobUrl=http%3A%2F%2F52.230.5.15%3A8080%2Fjob%2Fpyuml%2F)
 
 ## How to use
 
@@ -40,30 +43,10 @@ source code -> dot file -> png file
     exit:
     Exit the app
       
-## Project Layout
-```none
-<pyuml>
-  ├── main.py
-  ├── core
-  │   ├── basecmd.py
-  │   ├── loader.py
-  │   ├── parser.py
-  │   ├── serializer.py
-  │   └── writer.py
-  ├── utilities
-  │   └── logger.py
-  ├── config
-  │   ├── userConfig.ini
-  │   └── config.py
-  └── test
-      ├── test_db
-      ├── test_dot_code
-      ├── test_py_code
-      └── pyuml_unittest.py
-```
+
 ## A Command Line Interpreter runs on Windows & macOS
 You can download it from the [release page](http://github.com/chenjd/pyuml/releases).
-![](./result/exe_in_windows.png)
+
 ## Support [Type Annotation](https://docs.python.org/3/library/typing.html) & [Type Comments](https://www.python.org/dev/peps/pep-0484/#type-comments)
 
     # Type Annotation
@@ -102,40 +85,13 @@ You can find unit test in the **test** folder. There are some code resources be 
 ![](./result/unittest_screenshot.png)
 
 
-
-
-#### Doc Test
-There are many doctest in these .py files in the **core** folder(46 tests) and **utilites** folder(7 tests). such as:
-
-        """ (str, list of ClassRecorder) -> str
-        Return dot node string from list of ClassRecorder.
-
-        >>> writer = DotWriter()
-        >>> writer.write_node('dot_string', 1)
-        Traceback (most recent call last):
-        AssertionError
-        >>> int_list = (1,2)
-        >>> writer.write_node('dot_string', int_list)
-        Traceback (most recent call last):
-        AssertionError
-        >>> class_recorder_list = list((ClassRecorder('test1', list()), ClassRecorder('test2', list())))
-        >>> writer.write_node(1, class_recorder_list)
-        Traceback (most recent call last):
-        AssertionError
-        >>> writer.write_node('', class_recorder_list)
-        '    "test1" [label="{test1}",shape="record"];\\n    "test2" [label="{test2}",shape="record"];\\n'
-        """
-        
-![](./result/doctest_screenshot.png)
-
-
 ## Data Persistence
 store some information of a class, such as the count of methods in a class etc. in artifact folder.
 
 ## Config
   
     [DEFAULT]
-    author = jiadong chen & liam
+    author = jiadong chen
     version = 0.0.1
     url = https://github.com/chenjd/pyuml
 userConfig.ini

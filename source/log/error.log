@@ -1,0 +1,133 @@
+2020-07-29 18:57:29,585 ERROR source.utilities.logger load
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+KeyError: 'missing'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/cmd_view.py", line 73, in do_load
+    self.notify(UIEvent(UIEventType.LOAD, split_args))
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/base_view.py", line 32, in notify
+    o.update(event)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 39, in update
+    self.__ui_callbacks[event_type](event_body)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 59, in py_load
+    result = self.__serializer.deserilize(event_body.input)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/components/shelve_serializer.py", line 36, in deserilize
+    data = db[name]
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 113, in __getitem__
+    f = BytesIO(self.dict[key.encode(self.keyencoding)])
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/dbm/dumb.py", line 153, in __getitem__
+    pos, siz = self._index[key]     # may raise KeyError
+KeyError: b'missing'
+2020-07-29 18:57:29,600 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/PycharmProjects/pyuml/test/test_artifacts/uml0'
+2020-07-29 18:57:29,600 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-07-29 18:57:29,748 DEBUG PIL.PngImagePlugin STREAM b'IHDR' 16 13
+2020-07-29 18:57:29,748 DEBUG PIL.PngImagePlugin STREAM b'bKGD' 41 6
+2020-07-29 18:57:29,749 DEBUG PIL.PngImagePlugin b'bKGD' 41 6 (unknown)
+2020-07-29 18:57:29,749 DEBUG PIL.PngImagePlugin STREAM b'IDAT' 59 1074
+2020-07-29 18:57:29,749 DEBUG PIL.PngImagePlugin STREAM b'IHDR' 16 13
+2020-07-29 18:57:29,749 DEBUG PIL.PngImagePlugin STREAM b'sRGB' 41 1
+2020-07-29 18:57:29,750 DEBUG PIL.PngImagePlugin STREAM b'eXIf' 54 68
+2020-07-29 18:57:29,750 DEBUG PIL.PngImagePlugin STREAM b'IDAT' 134 1460
+2020-07-29 18:57:29,754 ERROR source.utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/cmd_view.py", line 57, in do_2uml
+    self.notify(UIEvent(UIEventType.UML, split_args))
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/base_view.py", line 32, in notify
+    o.update(event)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 39, in update
+    self.__ui_callbacks[event_type](event_body)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 52, in py_uml
+    self.__loader.load_from_file_or_directory(input_path)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/components/python_files_loader.py", line 18, in load_from_file_or_directory
+    raise IOError
+OSError
+2020-07-29 19:00:48,245 ERROR source.utilities.logger load
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+KeyError: 'missing'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/cmd_view.py", line 73, in do_load
+    self.notify(UIEvent(UIEventType.LOAD, split_args))
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/base_view.py", line 32, in notify
+    o.update(event)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 39, in update
+    self.__ui_callbacks[event_type](event_body)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 59, in py_load
+    result = self.__serializer.deserilize(event_body.input)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/components/shelve_serializer.py", line 36, in deserilize
+    data = db[name]
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 113, in __getitem__
+    f = BytesIO(self.dict[key.encode(self.keyencoding)])
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/dbm/dumb.py", line 153, in __getitem__
+    pos, siz = self._index[key]     # may raise KeyError
+KeyError: b'missing'
+2020-07-29 19:00:48,256 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/PycharmProjects/pyuml/test/test_artifacts/uml0'
+2020-07-29 19:00:48,257 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-07-29 19:00:48,337 ERROR source.utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/cmd_view.py", line 57, in do_2uml
+    self.notify(UIEvent(UIEventType.UML, split_args))
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/base_view.py", line 32, in notify
+    o.update(event)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 39, in update
+    self.__ui_callbacks[event_type](event_body)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 52, in py_uml
+    self.__loader.load_from_file_or_directory(input_path)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/components/python_files_loader.py", line 18, in load_from_file_or_directory
+    raise IOError
+OSError
+2020-07-29 19:00:57,402 ERROR source.utilities.logger load
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+KeyError: 'missing'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/cmd_view.py", line 73, in do_load
+    self.notify(UIEvent(UIEventType.LOAD, split_args))
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/base_view.py", line 32, in notify
+    o.update(event)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 39, in update
+    self.__ui_callbacks[event_type](event_body)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 59, in py_load
+    result = self.__serializer.deserilize(event_body.input)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/components/shelve_serializer.py", line 36, in deserilize
+    data = db[name]
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/shelve.py", line 113, in __getitem__
+    f = BytesIO(self.dict[key.encode(self.keyencoding)])
+  File "/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/lib/python3.7/dbm/dumb.py", line 153, in __getitem__
+    pos, siz = self._index[key]     # may raise KeyError
+KeyError: b'missing'
+2020-07-29 19:00:57,416 DEBUG graphviz.files write 69 bytes to '/Users/chenjiadong/PycharmProjects/pyuml/test/test_artifacts/uml0'
+2020-07-29 19:00:57,417 DEBUG graphviz.backend run ['dot', '-Tpng', '-O', 'uml0']
+2020-07-29 19:00:57,495 DEBUG PIL.PngImagePlugin STREAM b'IHDR' 16 13
+2020-07-29 19:00:57,523 DEBUG PIL.PngImagePlugin STREAM b'sRGB' 41 1
+2020-07-29 19:00:57,523 DEBUG PIL.PngImagePlugin STREAM b'eXIf' 54 68
+2020-07-29 19:00:57,523 DEBUG PIL.PngImagePlugin STREAM b'IDAT' 134 1460
+2020-07-29 19:00:57,524 DEBUG PIL.PngImagePlugin STREAM b'IHDR' 16 13
+2020-07-29 19:00:57,524 DEBUG PIL.PngImagePlugin STREAM b'sRGB' 41 1
+2020-07-29 19:00:57,525 DEBUG PIL.PngImagePlugin STREAM b'eXIf' 54 68
+2020-07-29 19:00:57,525 DEBUG PIL.PngImagePlugin STREAM b'IDAT' 134 1460
+2020-07-29 19:00:57,526 ERROR source.utilities.logger 2uml
+Traceback (most recent call last):
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/cmd_view.py", line 57, in do_2uml
+    self.notify(UIEvent(UIEventType.UML, split_args))
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/views/base_view.py", line 32, in notify
+    o.update(event)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 39, in update
+    self.__ui_callbacks[event_type](event_body)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/mvc/controllers/py_uml_controller.py", line 52, in py_uml
+    self.__loader.load_from_file_or_directory(input_path)
+  File "/Users/chenjiadong/PycharmProjects/pyuml/source/components/python_files_loader.py", line 18, in load_from_file_or_directory
+    raise IOError
+OSError

@@ -465,6 +465,8 @@ class TestPyUmlAPI(unittest.TestCase):
         output_dir = self.test_artifacts_dir
         pyuml.do_2uml(input_dir + ' ' + output_dir)
         expected_img_path = os.path.join(self.test_dot_dir, "uml0.png")
+        if os.name == 'nt':
+            expected_img_path = os.path.join(self.test_dot_dir, "uml0_win.png")
         expected_hash = imagehash.average_hash(Image.open(expected_img_path))
         result_img_path = os.path.join(self.test_artifacts_dir, "uml0.png")
         result_hash = imagehash.average_hash(Image.open(result_img_path))
