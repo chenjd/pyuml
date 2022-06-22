@@ -1,6 +1,6 @@
 graphviz==0.14.1
 ImageHash==4.1.0
-numpy==1.19.1
+numpy==1.22.0
 Pillow==8.1.1
 PyWavelets==1.1.1
 scipy==1.5.2
